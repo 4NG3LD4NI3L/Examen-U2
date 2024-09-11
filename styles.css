@@ -1,0 +1,12 @@
+body{
+    background-color: aqua;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    
+}
+#my_canvas {
+    border: 2px solid black;
+    background-color: lightgray;
+    box-sizing: border-box;
+}
