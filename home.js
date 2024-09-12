@@ -18,7 +18,127 @@ ctx.lineWidth = 1;
 ctx.strokeRect(15, 15, 400, 400);
 
 //LINEAS HORIZONTALES (X,Y,ALTO,ANCHO)
-//linea.push(new lineas(40,59,4,23))
+linea.push(new lineas(34,54,2,21))
+linea.push(new lineas(94,34,2,22))
+linea.push(new lineas(134,34,2,21))
+linea.push(new lineas(215,34,2,20))
+
+linea.push(new lineas(254,34,2,21))
+linea.push(new lineas(314,34,2,41))
+linea.push(new lineas(374,34,2,22))
+linea.push(new lineas(54,74,2,61))
+
+linea.push(new lineas(154,54,2,62))
+linea.push(new lineas(154,74,2,22))
+linea.push(new lineas(275,54,2,21))
+linea.push(new lineas(334,54,2,42))
+
+linea.push(new lineas(234,74,2,81))
+linea.push(new lineas(334,74,2,22))
+linea.push(new lineas(374,74,2,40))
+linea.push(new lineas(354,94,2,22))
+
+linea.push(new lineas(314,94,2,22))
+linea.push(new lineas(135,94,2,20))
+linea.push(new lineas(34,94,2,62))
+linea.push(new lineas(16,74,2,20))
+
+linea.push(new lineas(16,114,2,19))
+linea.push(new lineas(214,114,2,22))
+linea.push(new lineas(295,114,2,21))
+linea.push(new lineas(334,114,2,62))
+
+linea.push(new lineas(34,134,2,42))
+linea.push(new lineas(114,134,2,21))
+linea.push(new lineas(134,114,2,22))
+linea.push(new lineas(195,134,2,101))
+
+linea.push(new lineas(314,134,2,22))
+linea.push(new lineas(374,134,2,21))
+linea.push(new lineas(34,154,2,22))
+linea.push(new lineas(94,154,2,121))
+
+linea.push(new lineas(234,154,2,22))
+linea.push(new lineas(294,154,2,81))
+linea.push(new lineas(394,154,2,20))
+linea.push(new lineas(74,174,2,21))
+
+linea.push(new lineas(134,174,2,41))
+linea.push(new lineas(194,174,2,41))
+linea.push(new lineas(254,174,2,21))
+linea.push(new lineas(315,174,2,21))
+
+linea.push(new lineas(355,174,2,21))
+linea.push(new lineas(54,194,2,162))
+linea.push(new lineas(254,194,2,62))
+linea.push(new lineas(335,194,2,61))
+
+linea.push(new lineas(35,214,2,101))
+linea.push(new lineas(214,214,2,22))
+linea.push(new lineas(254,214,2,41))
+linea.push(new lineas(355,214,2,20))
+
+linea.push(new lineas(34,234,2,22))
+linea.push(new lineas(74,234,2,22))
+linea.push(new lineas(134,234,2,61))
+linea.push(new lineas(235,234,2,21))
+
+linea.push(new lineas(295, 234, 2, 20));
+linea.push(new lineas(16, 254, 2, 19));
+linea.push(new lineas(95, 254, 2, 80));
+linea.push(new lineas(275, 254, 2, 20));
+
+linea.push(new lineas(354, 254, 2, 41));
+linea.push(new lineas(16, 314, 2, 60));
+linea.push(new lineas(95, 314, 2, 40));
+linea.push(new lineas(175, 314, 2, 21));
+
+linea.push(new lineas(215, 314, 2, 41));
+linea.push(new lineas(295, 314, 2, 60));
+linea.push(new lineas(74, 354, 2, 22));
+linea.push(new lineas(114, 354, 2, 22));
+
+linea.push(new lineas(154, 354, 2, 62));
+linea.push(new lineas(254, 354, 2, 22));
+linea.push(new lineas(294, 354, 2, 62));
+linea.push(new lineas(374, 354, 2, 22));
+
+linea.push(new lineas(54, 374, 2, 62));
+linea.push(new lineas(135, 374, 2, 21));
+linea.push(new lineas(194, 374, 2, 102));
+linea.push(new lineas(313, 374, 2, 22));
+
+linea.push(new lineas(354, 374, 2, 21));
+linea.push(new lineas(395, 374, 2, 19));
+linea.push(new lineas(34, 394, 2, 22));
+linea.push(new lineas(95, 394, 2, 21));
+
+linea.push(new lineas(154, 394, 2, 42));
+linea.push(new lineas(214, 394, 2, 41));
+linea.push(new lineas(294, 394, 2, 22));
+linea.push(new lineas(334, 394, 2, 21));
+
+linea.push(new lineas(374, 394, 2, 21));
+linea.push(new lineas(135, 334, 2, 20));
+linea.push(new lineas(274, 334, 2, 22));
+linea.push(new lineas(354, 334, 2, 22));
+
+linea.push(new lineas(34, 294, 2, 41));
+linea.push(new lineas(114, 294, 2, 42));
+linea.push(new lineas(214, 294, 2, 22));
+linea.push(new lineas(254, 294, 2, 22));
+
+linea.push(new lineas(314, 294, 2, 22));
+linea.push(new lineas(354, 294, 2, 21));
+linea.push(new lineas(395, 294, 2, 19));
+linea.push(new lineas(34, 274, 2, 22));
+
+linea.push(new lineas(74, 274, 2, 22));
+linea.push(new lineas(174, 274, 2, 42));
+linea.push(new lineas(254, 274, 2, 22));
+linea.push(new lineas(334, 274, 2, 22));
+linea.push(new lineas(374, 274, 2, 22));
+
 
 //LINEAS VERTICALES
 linea.push(new lineas(34,15,41,2))
