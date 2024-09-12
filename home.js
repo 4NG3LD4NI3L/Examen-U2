@@ -14,8 +14,10 @@ class lineas{
 
 //MARCO
 ctx.strokeStyle = 'black';
-ctx.lineWidth = 1;
-ctx.strokeRect(15, 15, 400, 400);
+linea.push(new lineas(34,15,1,381))
+linea.push(new lineas(15,414,1,380))
+linea.push(new lineas(15,15,400,1))
+linea.push(new lineas(414,15,380,1))
 
 //LINEAS HORIZONTALES (X,Y,ALTO,ANCHO)
 linea.push(new lineas(34,54,2,21))
@@ -140,6 +142,8 @@ linea.push(new lineas(334, 274, 2, 22));
 linea.push(new lineas(374, 274, 2, 22));
 
 
+
+
 //LINEAS VERTICALES
 linea.push(new lineas(34,15,41,2))
 linea.push(new lineas(74,16,39,2))
@@ -206,21 +210,72 @@ linea.push(new lineas(274,75,40,2))
 linea.push(new lineas(254,95,40,2))
 linea.push(new lineas(294,95,41,2))
 
-linea.push(new lineas(334,114,22,2))
+
 linea.push(new lineas(354,74,22,2))
 linea.push(new lineas(374,74,22,2))
 linea.push(new lineas(334,94,22,2))
-
-linea.push(new lineas(314,14,22,2))
 linea.push(new lineas(354,115,20,2))
+
 linea.push(new lineas(154,215,20,2))
 linea.push(new lineas(194,215,60,2))
-
 linea.push(new lineas(174,195,20,2))
 linea.push(new lineas(174,274,61,2))
+
 linea.push(new lineas(214,394,20,2))
 linea.push(new lineas(274,375,20,2))
+linea.push(new lineas(334, 54, 22, 2));
+linea.push(new lineas(314, 114, 22, 2));
 
+linea.push(new lineas(334, 134, 21, 2));
+linea.push(new lineas(374, 134, 42, 2));
+linea.push(new lineas(394, 154, 42, 2));
+linea.push(new lineas(374, 195, 40, 2));
+
+linea.push(new lineas(394, 215, 61, 2));
+linea.push(new lineas(354, 235, 21, 2));
+linea.push(new lineas(374, 274, 62, 2));
+linea.push(new lineas(394, 315, 41, 2));
+
+linea.push(new lineas(374, 354, 42, 2));
+linea.push(new lineas(294, 394, 20, 2));
+linea.push(new lineas(314, 374, 22, 2));
+linea.push(new lineas(334, 374, 22, 2));
+
+linea.push(new lineas(354, 334, 42, 2));
+linea.push(new lineas(234, 335, 40, 2));
+linea.push(new lineas(294, 354, 22, 2));
+linea.push(new lineas(314, 335, 20, 2));
+
+linea.push(new lineas(334, 294, 41, 2));
+linea.push(new lineas(394, 95, 21, 2));
+linea.push(new lineas(334, 174, 102, 2));
+linea.push(new lineas(354, 274, 22, 2));
+
+linea.push(new lineas(194, 295, 21, 2));
+linea.push(new lineas(214, 294, 62, 2));
+linea.push(new lineas(254, 314, 42, 2));
+linea.push(new lineas(274, 334, 22, 2));
+
+linea.push(new lineas(214, 235, 41, 2));
+linea.push(new lineas(214, 194, 22, 2));
+linea.push(new lineas(194, 174, 21, 2));
+linea.push(new lineas(234, 154, 41, 2));
+
+linea.push(new lineas(274, 135, 20, 2));
+linea.push(new lineas(294, 154, 41, 2));
+linea.push(new lineas(234, 214, 82, 2));
+linea.push(new lineas(254, 234, 21, 2));
+
+linea.push(new lineas(254, 194, 22, 2));
+linea.push(new lineas(274, 215, 61, 2));
+linea.push(new lineas(254, 274, 22, 2));
+linea.push(new lineas(294, 275, 61, 2));
+
+linea.push(new lineas(274, 294, 21, 2));
+linea.push(new lineas(314, 194, 102, 2));
+linea.push(new lineas(254, 154, 22, 2));
+linea.push(new lineas(74, 95, 20, 2));
+linea.push(new lineas(154, 255, 20, 2));
 
 function pintar(){
     ctx.fillStyle = "black";
