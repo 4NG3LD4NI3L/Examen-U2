@@ -12,6 +12,44 @@ class lineas{
     }
 }
 
+class jugador{
+    constructor(x,y,h,w){
+        this.x = x;
+        this.y = y;
+        this.h = h;
+        this.w = w;
+    }
+
+    siTocar(otro){
+        if(this.x < otro.x + otro.w &&
+           this.x + this.w > otro.x   &&    
+           this.y < otro.y + otro.h &&    
+           this.y + this.h > otro.y)
+        {
+            switch(direccion){
+                case "up":
+                    player.y += 0.5
+                break;
+                case "down":
+                    player.y -= 0.5
+                break;
+                case "left":
+                    player.x += 0.5
+                break;
+                case "rigth":
+                    player.x -= 0.5
+                break;
+                }
+            
+        }
+        
+    }
+}
+
+//PLAYER
+let player = new jugador(20,15,10,10)
+
+
 //MARCO
 ctx.strokeStyle = 'black';
 linea.push(new lineas(34,15,1,381))
@@ -108,7 +146,7 @@ linea.push(new lineas(374, 354, 2, 22));
 linea.push(new lineas(54, 374, 2, 62));
 linea.push(new lineas(135, 374, 2, 21));
 linea.push(new lineas(194, 374, 2, 102));
-linea.push(new lineas(313, 374, 2, 22));
+linea.push(new lineas(314, 374, 2, 22));
 
 linea.push(new lineas(354, 374, 2, 21));
 linea.push(new lineas(395, 374, 2, 19));
@@ -277,17 +315,68 @@ linea.push(new lineas(254, 154, 22, 2));
 linea.push(new lineas(74, 95, 20, 2));
 linea.push(new lineas(154, 255, 20, 2));
 
-function pintar(){
-    ctx.fillStyle = "black";
 
+var direccion = " ";
 
-    linea.forEach(function(lin,i,array){
-        ctx.fillRect(lin.x,lin.y,lin.w,lin.h)
-        //player.siTocar(pared);
-    })
+document.addEventListener("keydown",function(e){
+    switch(e.keyCode){
+        case 65:
+            direccion = "left";
+        break;
+        case 68:
+            direccion = "rigth"
+        break;
+        case 83:
+            direccion = "down"
+        break;
+        case 87:
+            direccion = "up"
+        break;
+        case 32:
+            pause = !pause;
+        break;
+    }
+    console.log(e)
+})
 
+function update(){
+    switch(direccion){
+        case "up":
+            player.y -= 0.5
+        break;
+        case "down":
+            player.y += 0.5
+            
+        break;
+        case "left":
+        player.x -= 0.5
+            
+        break;
+        case "rigth":
+            player.x += 0.5
+        break;
+    }
 }
 
-pintar();
+function pintar(){
+    
+    ctx.fillStyle = "lightgray";
+    ctx.fillRect(0,0,430,430)
+    
+    ctx.fillStyle = "black";
+    update()
+    
+    linea.forEach(function(lin,i,array){
+        ctx.fillRect(lin.x,lin.y,lin.w,lin.h)
+        player.siTocar(lin);
+    })
+
+    ctx.fillRect(player.x,player.y,player.h,player.w)
+    
+    requestAnimationFrame(pintar)
+    
+}
+requestAnimationFrame(pintar)
+
 
 
