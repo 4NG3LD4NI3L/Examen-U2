@@ -3,6 +3,21 @@ const ctx = canvas.getContext('2d');
 
 var linea = [];
 
+let camera = {
+    x: 0,
+    y: 0,
+    width: canvas.width,
+    height: canvas.height,
+    follow(target) {
+       
+        this.x = target.x + target.w / 6 - this.width / 6;
+        this.y = target.y + target.h / 6 - this.height / 6;
+
+        this.x = Math.max(0, this.x); 
+        this.y = Math.max(0, this.y); 
+    }
+};
+
 class lineas{
     constructor(x,y,h,w){
         this.x = x;
@@ -339,6 +354,7 @@ document.addEventListener("keydown",function(e){
     console.log(e)
 })
 
+
 function update(){
     switch(direccion){
         case "up":
@@ -356,22 +372,27 @@ function update(){
             player.x += 0.5
         break;
     }
+    camera.follow(player);
 }
+
+let zoomFactor = 3;
+ctx.scale(zoomFactor, zoomFactor);
 
 function pintar(){
     
     ctx.fillStyle = "lightgray";
-    ctx.fillRect(0,0,430,430)
+    ctx.fillRect(0,0,canvas.width,canvas.height)
+    
+    update()
+
     
     ctx.fillStyle = "black";
-    update()
-    
     linea.forEach(function(lin,i,array){
-        ctx.fillRect(lin.x,lin.y,lin.w,lin.h)
+        ctx.fillRect(lin.x - camera.x, lin.y - camera.y, lin.w, lin.h);
         player.siTocar(lin);
     })
 
-    ctx.fillRect(player.x,player.y,player.h,player.w)
+    ctx.fillRect(player.x - camera.x, player.y - camera.y, player.h, player.w);
     
     requestAnimationFrame(pintar)
     
