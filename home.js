@@ -89,7 +89,7 @@ var imgTrue = new Image()
 imgTrue.src = "true.png"
 
 //PLAYER
-var player = new jugador(0,0,60,60)
+var player = new jugador(147,119,60,60)
 let spri = new jugador(0,0,32,32)
 
 //POKEMONES
@@ -424,7 +424,7 @@ function update(){
     camera.follow(player);
 }
 
-let zoomFactor = 1;
+let zoomFactor = 1.5;
 ctx.scale(zoomFactor, zoomFactor);
 
 var mono = new Image()
@@ -433,6 +433,8 @@ mono.src = "ash.png"
 let lastTime = 0; // Último tiempo registrado
 let fps = 30;     // Número de frames por segundo deseado (ajusta este valor)
 let frameDuration = 1000 / fps; 
+
+var banderaBul = false;
 
 function pintar(time){
     let deltaTime = time - lastTime;
@@ -452,8 +454,13 @@ function pintar(time){
         })
 
         ctx.fillStyle = "white";
-        
+
+        if(player.siTocar(bul)){
+            console("HOLA")
+        }
+
         ctx.drawImage(imgBul ,bul.x - camera.x , bul.y - camera.y , bul.h , bul.w )
+        
         ctx.drawImage(imgDrag ,drag.x - camera.x , drag.y - camera.y , drag.h , drag.w )
         ctx.drawImage(imgGato,gato.x - camera.x , gato.y - camera.y , gato.h , gato.w )
         ctx.drawImage(imgPik,pik.x - camera.x , pik.y - camera.y , pik.h , pik.w )
