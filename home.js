@@ -2,6 +2,8 @@ const canvas = document.getElementById('my_canvas');
 const ctx = canvas.getContext('2d');
 
 var linea = [];
+var direccion = " ";
+
 
 let camera = {
     x: 0,
@@ -35,6 +37,7 @@ class jugador{
         this.w = w;
     }
 
+
     siTocar(otro){
         if(this.x < otro.x + otro.w &&
            this.x + this.w > otro.x   &&    
@@ -43,27 +46,61 @@ class jugador{
         {
             switch(direccion){
                 case "up":
-                    player.y += 20
+                    this.y += 7
                 break;
                 case "down":
-                    player.y -= 20
+                    this.y -= 7
                 break;
                 case "left":
-                    player.x += 20
+                    this.x += 7
                 break;
-                case "rigth":
-                    player.x -= 20
+                case "right":
+                    this.x -= 7
                 break;
-                    }
-            
+            }
+            return true;
         }
-        
+        return false;
     }
 }
+ 
+var imgBul = new Image()
+imgBul.src = "bul.png"
+
+var imgDrag = new Image()
+imgDrag.src = "drag.png"
+
+var imgGato = new Image()
+imgGato.src = "gato.png"
+
+var imgPik = new Image()
+imgPik.src = "pik.png"
+
+var imgPin = new Image()
+imgPin.src = "pin.png"
+
+var imgPurp = new Image()
+imgPurp.src = "purp.png"
+
+var imgTort = new Image()
+imgTort.src = "tort.png"
+
+var imgTrue = new Image()
+imgTrue.src = "true.png"
 
 //PLAYER
-let player = new jugador(0,0,70,90)
+var player = new jugador(0,0,60,60)
 let spri = new jugador(0,0,32,32)
+
+//POKEMONES
+var bul = new jugador(280,148,50,50)
+var drag = new jugador(2800,1165,50,50)
+var gato = new jugador(1831,1398,50,50)
+var pik = new jugador(1819,2372,50,50)
+var pin = new jugador(1705,2519,50,50)
+var purp = new jugador(1399,1805,50,50)
+var tort = new jugador(560,2518,50,50)
+var trueno = new jugador(2517,568,50,50)
 
 
 //MARCO
@@ -280,7 +317,6 @@ linea.push(new lineas(274 * 6.97, 375 * 6.97, 20 * 6.97, 2 * 6.97))
 linea.push(new lineas(334 * 6.97, 54 * 6.97, 22 * 6.97, 2 * 6.97))
 linea.push(new lineas(314 * 6.97, 114 * 6.97, 22 * 6.97, 2 * 6.97))
 
-linea.push(new lineas(334 * 6.97, 134 * 6.97, 21 * 6.97, 2 * 6.97))
 linea.push(new lineas(374 * 6.97, 134 * 6.97, 42 * 6.97, 2 * 6.97))
 linea.push(new lineas(394 * 6.97, 154 * 6.97, 42 * 6.97, 2 * 6.97))
 linea.push(new lineas(374 * 6.97, 195 * 6.97, 40 * 6.97, 2 * 6.97))
@@ -333,15 +369,13 @@ linea.push(new lineas(154 * 6.97, 255 * 6.97, 20 * 6.97, 2 * 6.97))
 
 
 
-var direccion = " ";
-
 document.addEventListener("keydown",function(e){
     switch(e.keyCode){
         case 65:
             direccion = "left";
         break;
         case 68:
-            direccion = "rigth"
+            direccion = "right"
         break;
         case 83:
             direccion = "down"
@@ -367,65 +401,79 @@ document.addEventListener("keyup", function (e) {
     }
 });
 
-var indiceX=0 , indiceY=0;
-var ashX=0, ashY=0;
 
 function update(){
     switch(direccion){
         case "up":
-            player.y -= 20
+            player.y -= 7
             spri.y = 2
         break;
         case "down":
-            player.y += 20
+            player.y += 7
             spri.y = 0
         break;
         case "left":
-            player.x -= 20
+            player.x -= 7
             spri.y = 1
         break;
-        case "rigth":
-            player.x += 20
+        case "right":
+            player.x += 7
             spri.y = 3
         break;
     }
     camera.follow(player);
 }
 
-let zoomFactor = 3;
+let zoomFactor = 1;
 ctx.scale(zoomFactor, zoomFactor);
 
 var mono = new Image()
 mono.src = "ash.png"
 
+let lastTime = 0; // Último tiempo registrado
+let fps = 30;     // Número de frames por segundo deseado (ajusta este valor)
+let frameDuration = 1000 / fps; 
 
-function pintar(){
-    
-    ctx.fillStyle = "lightgray";
-    ctx.fillRect(0,0,canvas.width,canvas.height)
-    
-    update()
+function pintar(time){
+    let deltaTime = time - lastTime;
 
-    
-    ctx.fillStyle = "black";
-    linea.forEach(function(lin,i,array){
-        ctx.fillRect(lin.x - camera.x, lin.y - camera.y, lin.w, lin.h);
-        player.siTocar(lin);
-    })
+    if (deltaTime > frameDuration) {
+        lastTime = time;
+        ctx.fillStyle = "lightgray";
+        ctx.fillRect(0,0,canvas.width,canvas.height)
+        
+        update()
+       
+        
+        ctx.fillStyle = "black";
+        linea.forEach(function(lin,i,array){
+            ctx.fillRect(lin.x - camera.x, lin.y - camera.y, lin.w, lin.h);
+            player.siTocar(lin);
+        })
 
-    ctx.fillStyle = "white";
-    
-    ctx.fillRect(player.x,player.y,player.h,player.w)
-    ctx.drawImage(mono , spri.x *32 , spri.y*32 , spri.w , spri.h ,player.x,player.y, 90 , 90 )
+        ctx.fillStyle = "white";
+        
+        ctx.drawImage(imgBul ,bul.x - camera.x , bul.y - camera.y , bul.h , bul.w )
+        ctx.drawImage(imgDrag ,drag.x - camera.x , drag.y - camera.y , drag.h , drag.w )
+        ctx.drawImage(imgGato,gato.x - camera.x , gato.y - camera.y , gato.h , gato.w )
+        ctx.drawImage(imgPik,pik.x - camera.x , pik.y - camera.y , pik.h , pik.w )
+        ctx.drawImage(imgPin,pin.x - camera.x , pin.y - camera.y , pin.h , pin.w )
+        ctx.drawImage(imgPurp,purp.x - camera.x , purp.y - camera.y , purp.h , purp.w )
+        ctx.drawImage(imgTort,tort.x - camera.x , tort.y - camera.y , tort.h , tort.w )
+        ctx.drawImage(imgTrue,trueno.x - camera.x , trueno.y - camera.y , trueno.h , trueno.w )
+        
+        ctx.drawImage(mono ,spri.x *30 , spri.y*32 , spri.w , spri.h ,player.x - camera.x,player.y - camera.y, player.h , player.w )
 
-    spri.x += 1
-    
-    if(spri.x >= 4){
-        spri.x = 0
+
+        spri.x += 1
+        
+        if(spri.x >= 4){
+            spri.x = 0
+        }
+
+        
     }
-
-    setTimeout("pintar()",100)
-    //requestAnimationFrame(pintar)
+    requestAnimationFrame(pintar)
     
 }
 requestAnimationFrame(pintar)
