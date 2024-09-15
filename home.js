@@ -46,16 +46,16 @@ class jugador{
         {
             switch(direccion){
                 case "up":
-                    this.y += 7
+                    this.y += 5
                 break;
                 case "down":
-                    this.y -= 7
+                    this.y -= 5
                 break;
                 case "left":
-                    this.x += 7
+                    this.x += 5
                 break;
                 case "right":
-                    this.x -= 7
+                    this.x -= 5
                 break;
             }
             return true;
@@ -89,283 +89,283 @@ var imgTrue = new Image()
 imgTrue.src = "true.png"
 
 //PLAYER
-var player = new jugador(147,119,60,60)
+var player = new jugador(0,0,20,20)
 let spri = new jugador(0,0,32,32)
 
 //POKEMONES
-var bul = new jugador(280,148,50,50)
-var drag = new jugador(2800,1165,50,50)
-var gato = new jugador(1831,1398,50,50)
-var pik = new jugador(1819,2372,50,50)
-var pin = new jugador(1705,2519,50,50)
-var purp = new jugador(1399,1805,50,50)
-var tort = new jugador(560,2518,50,50)
-var trueno = new jugador(2517,568,50,50)
+var bul = new jugador(280,148,10,10)
+var drag = new jugador(2800,1165,10,10)
+var gato = new jugador(1831,1398,10,10)
+var pik = new jugador(1819,2372,10,10)
+var pin = new jugador(1705,2519,10,10)
+var purp = new jugador(1399,1805,10,10)
+var tort = new jugador(560,2518,10,10)
+var trueno = new jugador(2517,568,10,10)
 
 
 //MARCO
 ctx.strokeStyle = 'black';
-linea.push(new lineas(34 * 6.97 ,15* 6.97 ,1* 6.97, 381* 6.97))
-linea.push(new lineas(15* 6.97 ,414* 6.97 ,1* 6.97, 380* 6.97))
-linea.push(new lineas(15* 6.97 ,15* 6.97 ,400* 6.97, 1* 6.97))
-linea.push(new lineas(414* 6.97,15* 6.97 ,380* 6.97, 1* 6.97))
+linea.push(new lineas(34 * 2.32 ,15* 2.32 ,1* 2.32, 381* 2.32))
+linea.push(new lineas(15* 2.32 ,414* 2.32 ,1* 2.32, 380* 2.32))
+linea.push(new lineas(15* 2.32 ,15* 2.32 ,400* 2.32, 1* 2.32))
+linea.push(new lineas(414* 2.32,15* 2.32 ,380* 2.32, 1* 2.32))
 
 // LINEAS HORIZONTALES (X,Y,ALTO,ANCHO)
-linea.push(new lineas(34 * 6.97, 54 * 6.97, 2 * 6.97, 21 * 6.97));
-linea.push(new lineas(94 * 6.97, 34 * 6.97, 2 * 6.97, 22 * 6.97));
-linea.push(new lineas(134 * 6.97, 34 * 6.97, 2 * 6.97, 21 * 6.97));
-linea.push(new lineas(215 * 6.97, 34 * 6.97, 2 * 6.97, 20 * 6.97));
+linea.push(new lineas(34 * 2.32, 54 * 2.32, 2 * 2.32, 21 * 2.32));
+linea.push(new lineas(94 * 2.32, 34 * 2.32, 2 * 2.32, 22 * 2.32));
+linea.push(new lineas(134 * 2.32, 34 * 2.32, 2 * 2.32, 21 * 2.32));
+linea.push(new lineas(215 * 2.32, 34 * 2.32, 2 * 2.32, 20 * 2.32));
 
-linea.push(new lineas(254 * 6.97, 34 * 6.97, 2 * 6.97, 21 * 6.97));
-linea.push(new lineas(314 * 6.97, 34 * 6.97, 2 * 6.97, 41 * 6.97));
-linea.push(new lineas(374 * 6.97, 34 * 6.97, 2 * 6.97, 22 * 6.97));
-linea.push(new lineas(54 * 6.97, 74 * 6.97, 2 * 6.97, 61 * 6.97));
+linea.push(new lineas(254 * 2.32, 34 * 2.32, 2 * 2.32, 21 * 2.32));
+linea.push(new lineas(314 * 2.32, 34 * 2.32, 2 * 2.32, 41 * 2.32));
+linea.push(new lineas(374 * 2.32, 34 * 2.32, 2 * 2.32, 22 * 2.32));
+linea.push(new lineas(54 * 2.32, 74 * 2.32, 2 * 2.32, 61 * 2.32));
 
-linea.push(new lineas(154 * 6.97, 54 * 6.97, 2 * 6.97, 62 * 6.97));
-linea.push(new lineas(154 * 6.97, 74 * 6.97, 2 * 6.97, 22 * 6.97));
-linea.push(new lineas(275 * 6.97, 54 * 6.97, 2 * 6.97, 21 * 6.97));
-linea.push(new lineas(334 * 6.97, 54 * 6.97, 2 * 6.97, 42 * 6.97));
+linea.push(new lineas(154 * 2.32, 54 * 2.32, 2 * 2.32, 62 * 2.32));
+linea.push(new lineas(154 * 2.32, 74 * 2.32, 2 * 2.32, 22 * 2.32));
+linea.push(new lineas(275 * 2.32, 54 * 2.32, 2 * 2.32, 21 * 2.32));
+linea.push(new lineas(334 * 2.32, 54 * 2.32, 2 * 2.32, 42 * 2.32));
 
-linea.push(new lineas(234 * 6.97, 74 * 6.97, 2 * 6.97, 81 * 6.97));
-linea.push(new lineas(334 * 6.97, 74 * 6.97, 2 * 6.97, 22 * 6.97));
-linea.push(new lineas(374 * 6.97, 74 * 6.97, 2 * 6.97, 40 * 6.97));
-linea.push(new lineas(354 * 6.97, 94 * 6.97, 2 * 6.97, 22 * 6.97));
+linea.push(new lineas(234 * 2.32, 74 * 2.32, 2 * 2.32, 81 * 2.32));
+linea.push(new lineas(334 * 2.32, 74 * 2.32, 2 * 2.32, 22 * 2.32));
+linea.push(new lineas(374 * 2.32, 74 * 2.32, 2 * 2.32, 40 * 2.32));
+linea.push(new lineas(354 * 2.32, 94 * 2.32, 2 * 2.32, 22 * 2.32));
 
-linea.push(new lineas(314 * 6.97, 94 * 6.97, 2 * 6.97, 22 * 6.97));
-linea.push(new lineas(135 * 6.97, 94 * 6.97, 2 * 6.97, 20 * 6.97));
-linea.push(new lineas(34 * 6.97, 94 * 6.97, 2 * 6.97, 62 * 6.97));
-linea.push(new lineas(16 * 6.97, 74 * 6.97, 2 * 6.97, 20 * 6.97));
+linea.push(new lineas(314 * 2.32, 94 * 2.32, 2 * 2.32, 22 * 2.32));
+linea.push(new lineas(135 * 2.32, 94 * 2.32, 2 * 2.32, 20 * 2.32));
+linea.push(new lineas(34 * 2.32, 94 * 2.32, 2 * 2.32, 62 * 2.32));
+linea.push(new lineas(16 * 2.32, 74 * 2.32, 2 * 2.32, 20 * 2.32));
 
-linea.push(new lineas(16 * 6.97, 114 * 6.97, 2 * 6.97, 19 * 6.97));
-linea.push(new lineas(214 * 6.97, 114 * 6.97, 2 * 6.97, 22 * 6.97));
-linea.push(new lineas(295 * 6.97, 114 * 6.97, 2 * 6.97, 21 * 6.97));
-linea.push(new lineas(334 * 6.97, 114 * 6.97, 2 * 6.97, 62 * 6.97));
+linea.push(new lineas(16 * 2.32, 114 * 2.32, 2 * 2.32, 19 * 2.32));
+linea.push(new lineas(214 * 2.32, 114 * 2.32, 2 * 2.32, 22 * 2.32));
+linea.push(new lineas(295 * 2.32, 114 * 2.32, 2 * 2.32, 21 * 2.32));
+linea.push(new lineas(334 * 2.32, 114 * 2.32, 2 * 2.32, 62 * 2.32));
 
-linea.push(new lineas(34 * 6.97, 134 * 6.97, 2 * 6.97, 42 * 6.97));
-linea.push(new lineas(114 * 6.97, 134 * 6.97, 2 * 6.97, 21 * 6.97));
-linea.push(new lineas(134 * 6.97, 114 * 6.97, 2 * 6.97, 22 * 6.97));
-linea.push(new lineas(195 * 6.97, 134 * 6.97, 2 * 6.97, 101 * 6.97));
+linea.push(new lineas(34 * 2.32, 134 * 2.32, 2 * 2.32, 42 * 2.32));
+linea.push(new lineas(114 * 2.32, 134 * 2.32, 2 * 2.32, 21 * 2.32));
+linea.push(new lineas(134 * 2.32, 114 * 2.32, 2 * 2.32, 22 * 2.32));
+linea.push(new lineas(195 * 2.32, 134 * 2.32, 2 * 2.32, 101 * 2.32));
 
-linea.push(new lineas(314 * 6.97, 134 * 6.97, 2 * 6.97, 22 * 6.97));
-linea.push(new lineas(374 * 6.97, 134 * 6.97, 2 * 6.97, 21 * 6.97));
-linea.push(new lineas(34 * 6.97, 154 * 6.97, 2 * 6.97, 22 * 6.97));
-linea.push(new lineas(94 * 6.97, 154 * 6.97, 2 * 6.97, 121 * 6.97));
+linea.push(new lineas(314 * 2.32, 134 * 2.32, 2 * 2.32, 22 * 2.32));
+linea.push(new lineas(374 * 2.32, 134 * 2.32, 2 * 2.32, 21 * 2.32));
+linea.push(new lineas(34 * 2.32, 154 * 2.32, 2 * 2.32, 22 * 2.32));
+linea.push(new lineas(94 * 2.32, 154 * 2.32, 2 * 2.32, 121 * 2.32));
 
-linea.push(new lineas(234 * 6.97, 154 * 6.97, 2 * 6.97, 22 * 6.97));
-linea.push(new lineas(294 * 6.97, 154 * 6.97, 2 * 6.97, 81 * 6.97));
-linea.push(new lineas(394 * 6.97, 154 * 6.97, 2 * 6.97, 20 * 6.97));
-linea.push(new lineas(74 * 6.97, 174 * 6.97, 2 * 6.97, 21 * 6.97));
+linea.push(new lineas(234 * 2.32, 154 * 2.32, 2 * 2.32, 22 * 2.32));
+linea.push(new lineas(294 * 2.32, 154 * 2.32, 2 * 2.32, 81 * 2.32));
+linea.push(new lineas(394 * 2.32, 154 * 2.32, 2 * 2.32, 20 * 2.32));
+linea.push(new lineas(74 * 2.32, 174 * 2.32, 2 * 2.32, 21 * 2.32));
 
-linea.push(new lineas(134 * 6.97, 174 * 6.97, 2 * 6.97, 41 * 6.97));
-linea.push(new lineas(194 * 6.97, 174 * 6.97, 2 * 6.97, 41 * 6.97));
-linea.push(new lineas(254 * 6.97, 174 * 6.97, 2 * 6.97, 21 * 6.97));
-linea.push(new lineas(315 * 6.97, 174 * 6.97, 2 * 6.97, 21 * 6.97));
+linea.push(new lineas(134 * 2.32, 174 * 2.32, 2 * 2.32, 41 * 2.32));
+linea.push(new lineas(194 * 2.32, 174 * 2.32, 2 * 2.32, 41 * 2.32));
+linea.push(new lineas(254 * 2.32, 174 * 2.32, 2 * 2.32, 21 * 2.32));
+linea.push(new lineas(315 * 2.32, 174 * 2.32, 2 * 2.32, 21 * 2.32));
 
-linea.push(new lineas(355 * 6.97, 174 * 6.97, 2 * 6.97, 21 * 6.97));
-linea.push(new lineas(54 * 6.97, 194 * 6.97, 2 * 6.97, 162 * 6.97));
-linea.push(new lineas(254 * 6.97, 194 * 6.97, 2 * 6.97, 62 * 6.97));
-linea.push(new lineas(335 * 6.97, 194 * 6.97, 2 * 6.97, 61 * 6.97));
+linea.push(new lineas(355 * 2.32, 174 * 2.32, 2 * 2.32, 21 * 2.32));
+linea.push(new lineas(54 * 2.32, 194 * 2.32, 2 * 2.32, 162 * 2.32));
+linea.push(new lineas(254 * 2.32, 194 * 2.32, 2 * 2.32, 62 * 2.32));
+linea.push(new lineas(335 * 2.32, 194 * 2.32, 2 * 2.32, 61 * 2.32));
 
-linea.push(new lineas(35 * 6.97, 214 * 6.97, 2 * 6.97, 101 * 6.97));
-linea.push(new lineas(214 * 6.97, 214 * 6.97, 2 * 6.97, 22 * 6.97));
-linea.push(new lineas(254 * 6.97, 214 * 6.97, 2 * 6.97, 41 * 6.97));
-linea.push(new lineas(355 * 6.97, 214 * 6.97, 2 * 6.97, 20 * 6.97));
+linea.push(new lineas(35 * 2.32, 214 * 2.32, 2 * 2.32, 101 * 2.32));
+linea.push(new lineas(214 * 2.32, 214 * 2.32, 2 * 2.32, 22 * 2.32));
+linea.push(new lineas(254 * 2.32, 214 * 2.32, 2 * 2.32, 41 * 2.32));
+linea.push(new lineas(355 * 2.32, 214 * 2.32, 2 * 2.32, 20 * 2.32));
 
-linea.push(new lineas(34 * 6.97, 234 * 6.97, 2 * 6.97, 22 * 6.97));
-linea.push(new lineas(74 * 6.97, 234 * 6.97, 2 * 6.97, 22 * 6.97));
-linea.push(new lineas(134 * 6.97, 234 * 6.97, 2 * 6.97, 61 * 6.97));
-linea.push(new lineas(235 * 6.97, 234 * 6.97, 2 * 6.97, 21 * 6.97));
+linea.push(new lineas(34 * 2.32, 234 * 2.32, 2 * 2.32, 22 * 2.32));
+linea.push(new lineas(74 * 2.32, 234 * 2.32, 2 * 2.32, 22 * 2.32));
+linea.push(new lineas(134 * 2.32, 234 * 2.32, 2 * 2.32, 61 * 2.32));
+linea.push(new lineas(235 * 2.32, 234 * 2.32, 2 * 2.32, 21 * 2.32));
 
-linea.push(new lineas(295 * 6.97, 234 * 6.97, 2 * 6.97, 20 * 6.97));
-linea.push(new lineas(16 * 6.97, 254 * 6.97, 2 * 6.97, 19 * 6.97));
-linea.push(new lineas(95 * 6.97, 254 * 6.97, 2 * 6.97, 80 * 6.97));
-linea.push(new lineas(275 * 6.97, 254 * 6.97, 2 * 6.97, 20 * 6.97));
+linea.push(new lineas(295 * 2.32, 234 * 2.32, 2 * 2.32, 20 * 2.32));
+linea.push(new lineas(16 * 2.32, 254 * 2.32, 2 * 2.32, 19 * 2.32));
+linea.push(new lineas(95 * 2.32, 254 * 2.32, 2 * 2.32, 80 * 2.32));
+linea.push(new lineas(275 * 2.32, 254 * 2.32, 2 * 2.32, 20 * 2.32));
 
-linea.push(new lineas(354 * 6.97, 254 * 6.97, 2 * 6.97, 41 * 6.97));
-linea.push(new lineas(16 * 6.97, 314 * 6.97, 2 * 6.97, 60 * 6.97));
-linea.push(new lineas(95 * 6.97, 314 * 6.97, 2 * 6.97, 40 * 6.97));
-linea.push(new lineas(175 * 6.97, 314 * 6.97, 2 * 6.97, 21 * 6.97));
+linea.push(new lineas(354 * 2.32, 254 * 2.32, 2 * 2.32, 41 * 2.32));
+linea.push(new lineas(16 * 2.32, 314 * 2.32, 2 * 2.32, 60 * 2.32));
+linea.push(new lineas(95 * 2.32, 314 * 2.32, 2 * 2.32, 40 * 2.32));
+linea.push(new lineas(175 * 2.32, 314 * 2.32, 2 * 2.32, 21 * 2.32));
 
-linea.push(new lineas(215 * 6.97, 314 * 6.97, 2 * 6.97, 41 * 6.97));
-linea.push(new lineas(295 * 6.97, 314 * 6.97, 2 * 6.97, 60 * 6.97));
-linea.push(new lineas(74 * 6.97, 354 * 6.97, 2 * 6.97, 22 * 6.97));
-linea.push(new lineas(114 * 6.97, 354 * 6.97, 2 * 6.97, 22 * 6.97));
+linea.push(new lineas(215 * 2.32, 314 * 2.32, 2 * 2.32, 41 * 2.32));
+linea.push(new lineas(295 * 2.32, 314 * 2.32, 2 * 2.32, 60 * 2.32));
+linea.push(new lineas(74 * 2.32, 354 * 2.32, 2 * 2.32, 22 * 2.32));
+linea.push(new lineas(114 * 2.32, 354 * 2.32, 2 * 2.32, 22 * 2.32));
 
-linea.push(new lineas(154 * 6.97, 354 * 6.97, 2 * 6.97, 62 * 6.97));
-linea.push(new lineas(254 * 6.97, 354 * 6.97, 2 * 6.97, 22 * 6.97));
-linea.push(new lineas(294 * 6.97, 354 * 6.97, 2 * 6.97, 62 * 6.97));
-linea.push(new lineas(374 * 6.97, 354 * 6.97, 2 * 6.97, 22 * 6.97));
+linea.push(new lineas(154 * 2.32, 354 * 2.32, 2 * 2.32, 62 * 2.32));
+linea.push(new lineas(254 * 2.32, 354 * 2.32, 2 * 2.32, 22 * 2.32));
+linea.push(new lineas(294 * 2.32, 354 * 2.32, 2 * 2.32, 62 * 2.32));
+linea.push(new lineas(374 * 2.32, 354 * 2.32, 2 * 2.32, 22 * 2.32));
 
-linea.push(new lineas(54 * 6.97, 374 * 6.97, 2 * 6.97, 62 * 6.97));
-linea.push(new lineas(135 * 6.97, 374 * 6.97, 2 * 6.97, 21 * 6.97));
-linea.push(new lineas(194 * 6.97, 374 * 6.97, 2 * 6.97, 102 * 6.97));
-linea.push(new lineas(314 * 6.97, 374 * 6.97, 2 * 6.97, 22 * 6.97));
+linea.push(new lineas(54 * 2.32, 374 * 2.32, 2 * 2.32, 62 * 2.32));
+linea.push(new lineas(135 * 2.32, 374 * 2.32, 2 * 2.32, 21 * 2.32));
+linea.push(new lineas(194 * 2.32, 374 * 2.32, 2 * 2.32, 102 * 2.32));
+linea.push(new lineas(314 * 2.32, 374 * 2.32, 2 * 2.32, 22 * 2.32));
 
-linea.push(new lineas(354 * 6.97, 374 * 6.97, 2 * 6.97, 21 * 6.97));
-linea.push(new lineas(395 * 6.97, 374 * 6.97, 2 * 6.97, 19 * 6.97));
-linea.push(new lineas(34 * 6.97, 394 * 6.97, 2 * 6.97, 22 * 6.97));
-linea.push(new lineas(95 * 6.97, 394 * 6.97, 2 * 6.97, 21 * 6.97));
+linea.push(new lineas(354 * 2.32, 374 * 2.32, 2 * 2.32, 21 * 2.32));
+linea.push(new lineas(395 * 2.32, 374 * 2.32, 2 * 2.32, 19 * 2.32));
+linea.push(new lineas(34 * 2.32, 394 * 2.32, 2 * 2.32, 22 * 2.32));
+linea.push(new lineas(95 * 2.32, 394 * 2.32, 2 * 2.32, 21 * 2.32));
 
-linea.push(new lineas(154 * 6.97, 394 * 6.97, 2 * 6.97, 42 * 6.97));
-linea.push(new lineas(214 * 6.97, 394 * 6.97, 2 * 6.97, 41 * 6.97));
-linea.push(new lineas(294 * 6.97, 394 * 6.97, 2 * 6.97, 22 * 6.97));
-linea.push(new lineas(334 * 6.97, 394 * 6.97, 2 * 6.97, 21 * 6.97));
+linea.push(new lineas(154 * 2.32, 394 * 2.32, 2 * 2.32, 42 * 2.32));
+linea.push(new lineas(214 * 2.32, 394 * 2.32, 2 * 2.32, 41 * 2.32));
+linea.push(new lineas(294 * 2.32, 394 * 2.32, 2 * 2.32, 22 * 2.32));
+linea.push(new lineas(334 * 2.32, 394 * 2.32, 2 * 2.32, 21 * 2.32));
 
-linea.push(new lineas(374 * 6.97, 394 * 6.97, 2 * 6.97, 21 * 6.97));
-linea.push(new lineas(135 * 6.97, 334 * 6.97, 2 * 6.97, 20 * 6.97));
-linea.push(new lineas(274 * 6.97, 334 * 6.97, 2 * 6.97, 22 * 6.97));
-linea.push(new lineas(354 * 6.97, 334 * 6.97, 2 * 6.97, 22 * 6.97));
+linea.push(new lineas(374 * 2.32, 394 * 2.32, 2 * 2.32, 21 * 2.32));
+linea.push(new lineas(135 * 2.32, 334 * 2.32, 2 * 2.32, 20 * 2.32));
+linea.push(new lineas(274 * 2.32, 334 * 2.32, 2 * 2.32, 22 * 2.32));
+linea.push(new lineas(354 * 2.32, 334 * 2.32, 2 * 2.32, 22 * 2.32));
 
-linea.push(new lineas(34 * 6.97, 294 * 6.97, 2 * 6.97, 41 * 6.97));
-linea.push(new lineas(114 * 6.97, 294 * 6.97, 2 * 6.97, 42 * 6.97));
-linea.push(new lineas(214 * 6.97, 294 * 6.97, 2 * 6.97, 22 * 6.97));
-linea.push(new lineas(254 * 6.97, 294 * 6.97, 2 * 6.97, 22 * 6.97));
+linea.push(new lineas(34 * 2.32, 294 * 2.32, 2 * 2.32, 41 * 2.32));
+linea.push(new lineas(114 * 2.32, 294 * 2.32, 2 * 2.32, 42 * 2.32));
+linea.push(new lineas(214 * 2.32, 294 * 2.32, 2 * 2.32, 22 * 2.32));
+linea.push(new lineas(254 * 2.32, 294 * 2.32, 2 * 2.32, 22 * 2.32));
 
-linea.push(new lineas(314 * 6.97, 294 * 6.97, 2 * 6.97, 22 * 6.97));
-linea.push(new lineas(354 * 6.97, 294 * 6.97, 2 * 6.97, 21 * 6.97));
-linea.push(new lineas(395 * 6.97, 294 * 6.97, 2 * 6.97, 19 * 6.97));
-linea.push(new lineas(34 * 6.97, 274 * 6.97, 2 * 6.97, 22 * 6.97));
+linea.push(new lineas(314 * 2.32, 294 * 2.32, 2 * 2.32, 22 * 2.32));
+linea.push(new lineas(354 * 2.32, 294 * 2.32, 2 * 2.32, 21 * 2.32));
+linea.push(new lineas(395 * 2.32, 294 * 2.32, 2 * 2.32, 19 * 2.32));
+linea.push(new lineas(34 * 2.32, 274 * 2.32, 2 * 2.32, 22 * 2.32));
 
-linea.push(new lineas(74 * 6.97, 274 * 6.97, 2 * 6.97, 22 * 6.97));
-linea.push(new lineas(174 * 6.97, 274 * 6.97, 2 * 6.97, 42 * 6.97));
-linea.push(new lineas(254 * 6.97, 274 * 6.97, 2 * 6.97, 22 * 6.97));
-linea.push(new lineas(334 * 6.97, 274 * 6.97, 2 * 6.97, 22 * 6.97));
-linea.push(new lineas(374 * 6.97, 274 * 6.97, 2 * 6.97, 22 * 6.97));
+linea.push(new lineas(74 * 2.32, 274 * 2.32, 2 * 2.32, 22 * 2.32));
+linea.push(new lineas(174 * 2.32, 274 * 2.32, 2 * 2.32, 42 * 2.32));
+linea.push(new lineas(254 * 2.32, 274 * 2.32, 2 * 2.32, 22 * 2.32));
+linea.push(new lineas(334 * 2.32, 274 * 2.32, 2 * 2.32, 22 * 2.32));
+linea.push(new lineas(374 * 2.32, 274 * 2.32, 2 * 2.32, 22 * 2.32));
 
 
 
 
 
 // LINEAS VERTICALES
-linea.push(new lineas(34 * 6.97, 15 * 6.97, 41 * 6.97, 2 * 6.97))
-linea.push(new lineas(74 * 6.97, 16 * 6.97, 39 * 6.97, 2 * 6.97))
-linea.push(new lineas(54 * 6.97, 35 * 6.97, 41 * 6.97, 2 * 6.97))
-linea.push(new lineas(94 * 6.97, 34 * 6.97, 21 * 6.97, 2 * 6.97))
+linea.push(new lineas(34 * 2.32, 15 * 2.32, 41 * 2.32, 2 * 2.32))
+linea.push(new lineas(74 * 2.32, 16 * 2.32, 39 * 2.32, 2 * 2.32))
+linea.push(new lineas(54 * 2.32, 35 * 2.32, 41 * 2.32, 2 * 2.32))
+linea.push(new lineas(94 * 2.32, 34 * 2.32, 21 * 2.32, 2 * 2.32))
 
-linea.push(new lineas(114 * 6.97, 34 * 6.97, 102 * 6.97, 2 * 6.97))
-linea.push(new lineas(134 * 6.97, 34 * 6.97, 82 * 6.97, 2 * 6.97))
-linea.push(new lineas(174 * 6.97, 16 * 6.97, 40 * 6.97, 2 * 6.97))
-linea.push(new lineas(194 * 6.97, 35 * 6.97, 20 * 6.97, 2 * 6.97))
+linea.push(new lineas(114 * 2.32, 34 * 2.32, 102 * 2.32, 2 * 2.32))
+linea.push(new lineas(134 * 2.32, 34 * 2.32, 82 * 2.32, 2 * 2.32))
+linea.push(new lineas(174 * 2.32, 16 * 2.32, 40 * 2.32, 2 * 2.32))
+linea.push(new lineas(194 * 2.32, 35 * 2.32, 20 * 2.32, 2 * 2.32))
 
-linea.push(new lineas(234 * 6.97, 16 * 6.97, 40 * 6.97, 2 * 6.97))
-linea.push(new lineas(254 * 6.97, 34 * 6.97, 41 * 6.97, 2 * 6.97))
-linea.push(new lineas(294 * 6.97, 16 * 6.97, 40 * 6.97, 2 * 6.97))
-linea.push(new lineas(314 * 6.97, 34 * 6.97, 62 * 6.97, 2 * 6.97))
+linea.push(new lineas(234 * 2.32, 16 * 2.32, 40 * 2.32, 2 * 2.32))
+linea.push(new lineas(254 * 2.32, 34 * 2.32, 41 * 2.32, 2 * 2.32))
+linea.push(new lineas(294 * 2.32, 16 * 2.32, 40 * 2.32, 2 * 2.32))
+linea.push(new lineas(314 * 2.32, 34 * 2.32, 62 * 2.32, 2 * 2.32))
 
-linea.push(new lineas(374 * 6.97, 34 * 6.97, 22 * 6.97, 2 * 6.97))
-linea.push(new lineas(394 * 6.97, 34 * 6.97, 22 * 6.97, 2 * 6.97))
-linea.push(new lineas(34 * 6.97, 274 * 6.97, 22 * 6.97, 2 * 6.97))
-linea.push(new lineas(54 * 6.97, 115 * 6.97, 20 * 6.97, 2 * 6.97))
+linea.push(new lineas(374 * 2.32, 34 * 2.32, 22 * 2.32, 2 * 2.32))
+linea.push(new lineas(394 * 2.32, 34 * 2.32, 22 * 2.32, 2 * 2.32))
+linea.push(new lineas(34 * 2.32, 274 * 2.32, 22 * 2.32, 2 * 2.32))
+linea.push(new lineas(54 * 2.32, 115 * 2.32, 20 * 2.32, 2 * 2.32))
 
-linea.push(new lineas(34 * 6.97, 134 * 6.97, 22 * 6.97, 2 * 6.97))
-linea.push(new lineas(34 * 6.97, 174 * 6.97, 61 * 6.97, 2 * 6.97))
-linea.push(new lineas(34 * 6.97, 274 * 6.97, 22 * 6.97, 2 * 6.97))
-linea.push(new lineas(54 * 6.97, 315 * 6.97, 40 * 6.97, 2 * 6.97))
+linea.push(new lineas(34 * 2.32, 134 * 2.32, 22 * 2.32, 2 * 2.32))
+linea.push(new lineas(34 * 2.32, 174 * 2.32, 61 * 2.32, 2 * 2.32))
+linea.push(new lineas(34 * 2.32, 274 * 2.32, 22 * 2.32, 2 * 2.32))
+linea.push(new lineas(54 * 2.32, 315 * 2.32, 40 * 2.32, 2 * 2.32))
 
-linea.push(new lineas(34 * 6.97, 335 * 6.97, 61 * 6.97, 2 * 6.97))
-linea.push(new lineas(54 * 6.97, 374 * 6.97, 22 * 6.97, 2 * 6.97))
-linea.push(new lineas(74 * 6.97, 395 * 6.97, 20 * 6.97, 2 * 6.97))
-linea.push(new lineas(54 * 6.97, 234 * 6.97, 42 * 6.97, 2 * 6.97))
+linea.push(new lineas(34 * 2.32, 335 * 2.32, 61 * 2.32, 2 * 2.32))
+linea.push(new lineas(54 * 2.32, 374 * 2.32, 22 * 2.32, 2 * 2.32))
+linea.push(new lineas(74 * 2.32, 395 * 2.32, 20 * 2.32, 2 * 2.32))
+linea.push(new lineas(54 * 2.32, 234 * 2.32, 42 * 2.32, 2 * 2.32))
 
-linea.push(new lineas(74 * 6.97, 234 * 6.97, 42 * 6.97, 2 * 6.97))
-linea.push(new lineas(94 * 6.97, 274 * 6.97, 61 * 6.97, 2 * 6.97))
-linea.push(new lineas(74 * 6.97, 315 * 6.97, 41 * 6.97, 2 * 6.97))
-linea.push(new lineas(94 * 6.97, 354 * 6.97, 21 * 6.97, 2 * 6.97))
+linea.push(new lineas(74 * 2.32, 234 * 2.32, 42 * 2.32, 2 * 2.32))
+linea.push(new lineas(94 * 2.32, 274 * 2.32, 61 * 2.32, 2 * 2.32))
+linea.push(new lineas(74 * 2.32, 315 * 2.32, 41 * 2.32, 2 * 2.32))
+linea.push(new lineas(94 * 2.32, 354 * 2.32, 21 * 2.32, 2 * 2.32))
 
-linea.push(new lineas(34 * 6.97, 74 * 6.97, 22 * 6.97, 2 * 6.97))
-linea.push(new lineas(94 * 6.97, 95 * 6.97, 61 * 6.97, 2 * 6.97))
-linea.push(new lineas(74 * 6.97, 135 * 6.97, 41 * 6.97, 2 * 6.97))
-linea.push(new lineas(54 * 6.97, 155 * 6.97, 41 * 6.97, 2 * 6.97))
+linea.push(new lineas(34 * 2.32, 74 * 2.32, 22 * 2.32, 2 * 2.32))
+linea.push(new lineas(94 * 2.32, 95 * 2.32, 61 * 2.32, 2 * 2.32))
+linea.push(new lineas(74 * 2.32, 135 * 2.32, 41 * 2.32, 2 * 2.32))
+linea.push(new lineas(54 * 2.32, 155 * 2.32, 41 * 2.32, 2 * 2.32))
 
-linea.push(new lineas(94 * 6.97, 215 * 6.97, 21 * 6.97, 2 * 6.97))
-linea.push(new lineas(114 * 6.97, 235 * 6.97, 61 * 6.97, 2 * 6.97))
-linea.push(new lineas(134 * 6.97, 275 * 6.97, 20 * 6.97, 2 * 6.97))
-linea.push(new lineas(154 * 6.97, 295 * 6.97, 61 * 6.97, 2 * 6.97))
+linea.push(new lineas(94 * 2.32, 215 * 2.32, 21 * 2.32, 2 * 2.32))
+linea.push(new lineas(114 * 2.32, 235 * 2.32, 61 * 2.32, 2 * 2.32))
+linea.push(new lineas(134 * 2.32, 275 * 2.32, 20 * 2.32, 2 * 2.32))
+linea.push(new lineas(154 * 2.32, 295 * 2.32, 61 * 2.32, 2 * 2.32))
 
-linea.push(new lineas(114 * 6.97, 315 * 6.97, 41 * 6.97, 2 * 6.97))
-linea.push(new lineas(114 * 6.97, 375 * 6.97, 21 * 6.97, 2 * 6.97))
-linea.push(new lineas(134 * 6.97, 355 * 6.97, 40 * 6.97, 2 * 6.97))
-linea.push(new lineas(154 * 6.97, 375 * 6.97, 21 * 6.97, 2 * 6.97))
+linea.push(new lineas(114 * 2.32, 315 * 2.32, 41 * 2.32, 2 * 2.32))
+linea.push(new lineas(114 * 2.32, 375 * 2.32, 21 * 2.32, 2 * 2.32))
+linea.push(new lineas(134 * 2.32, 355 * 2.32, 40 * 2.32, 2 * 2.32))
+linea.push(new lineas(154 * 2.32, 375 * 2.32, 21 * 2.32, 2 * 2.32))
 
-linea.push(new lineas(194 * 6.97, 374 * 6.97, 22 * 6.97, 2 * 6.97))
-linea.push(new lineas(174 * 6.97, 355 * 6.97, 20 * 6.97, 2 * 6.97))
-linea.push(new lineas(194 * 6.97, 335 * 6.97, 20 * 6.97, 2 * 6.97))
-linea.push(new lineas(214 * 6.97, 55 * 6.97, 61 * 6.97, 2 * 6.97))
+linea.push(new lineas(194 * 2.32, 374 * 2.32, 22 * 2.32, 2 * 2.32))
+linea.push(new lineas(174 * 2.32, 355 * 2.32, 20 * 2.32, 2 * 2.32))
+linea.push(new lineas(194 * 2.32, 335 * 2.32, 20 * 2.32, 2 * 2.32))
+linea.push(new lineas(214 * 2.32, 55 * 2.32, 61 * 2.32, 2 * 2.32))
 
-linea.push(new lineas(174 * 6.97, 75 * 6.97, 60 * 6.97, 2 * 6.97))
-linea.push(new lineas(154 * 6.97, 115 * 6.97, 40 * 6.97, 2 * 6.97))
-linea.push(new lineas(134 * 6.97, 155 * 6.97, 20 * 6.97, 2 * 6.97))
-linea.push(new lineas(194 * 6.97, 75 * 6.97, 80 * 6.97, 2 * 6.97))
+linea.push(new lineas(174 * 2.32, 75 * 2.32, 60 * 2.32, 2 * 2.32))
+linea.push(new lineas(154 * 2.32, 115 * 2.32, 40 * 2.32, 2 * 2.32))
+linea.push(new lineas(134 * 2.32, 155 * 2.32, 20 * 2.32, 2 * 2.32))
+linea.push(new lineas(194 * 2.32, 75 * 2.32, 80 * 2.32, 2 * 2.32))
 
-linea.push(new lineas(234 * 6.97, 74 * 6.97, 42 * 6.97, 2 * 6.97))
-linea.push(new lineas(274 * 6.97, 75 * 6.97, 40 * 6.97, 2 * 6.97))
-linea.push(new lineas(254 * 6.97, 95 * 6.97, 40 * 6.97, 2 * 6.97))
-linea.push(new lineas(294 * 6.97, 95 * 6.97, 41 * 6.97, 2 * 6.97))
+linea.push(new lineas(234 * 2.32, 74 * 2.32, 42 * 2.32, 2 * 2.32))
+linea.push(new lineas(274 * 2.32, 75 * 2.32, 40 * 2.32, 2 * 2.32))
+linea.push(new lineas(254 * 2.32, 95 * 2.32, 40 * 2.32, 2 * 2.32))
+linea.push(new lineas(294 * 2.32, 95 * 2.32, 41 * 2.32, 2 * 2.32))
 
-linea.push(new lineas(354 * 6.97, 74 * 6.97, 22 * 6.97, 2 * 6.97))
-linea.push(new lineas(374 * 6.97, 74 * 6.97, 22 * 6.97, 2 * 6.97))
-linea.push(new lineas(334 * 6.97, 94 * 6.97, 22 * 6.97, 2 * 6.97))
-linea.push(new lineas(354 * 6.97, 115 * 6.97, 20 * 6.97, 2 * 6.97))
+linea.push(new lineas(354 * 2.32, 74 * 2.32, 22 * 2.32, 2 * 2.32))
+linea.push(new lineas(374 * 2.32, 74 * 2.32, 22 * 2.32, 2 * 2.32))
+linea.push(new lineas(334 * 2.32, 94 * 2.32, 22 * 2.32, 2 * 2.32))
+linea.push(new lineas(354 * 2.32, 115 * 2.32, 20 * 2.32, 2 * 2.32))
 
-linea.push(new lineas(154 * 6.97, 215 * 6.97, 20 * 6.97, 2 * 6.97))
-linea.push(new lineas(194 * 6.97, 215 * 6.97, 60 * 6.97, 2 * 6.97))
-linea.push(new lineas(174 * 6.97, 195 * 6.97, 20 * 6.97, 2 * 6.97))
-linea.push(new lineas(174 * 6.97, 274 * 6.97, 61 * 6.97, 2 * 6.97))
+linea.push(new lineas(154 * 2.32, 215 * 2.32, 20 * 2.32, 2 * 2.32))
+linea.push(new lineas(194 * 2.32, 215 * 2.32, 60 * 2.32, 2 * 2.32))
+linea.push(new lineas(174 * 2.32, 195 * 2.32, 20 * 2.32, 2 * 2.32))
+linea.push(new lineas(174 * 2.32, 274 * 2.32, 61 * 2.32, 2 * 2.32))
 
-linea.push(new lineas(214 * 6.97, 394 * 6.97, 20 * 6.97, 2 * 6.97))
-linea.push(new lineas(274 * 6.97, 375 * 6.97, 20 * 6.97, 2 * 6.97))
-linea.push(new lineas(334 * 6.97, 54 * 6.97, 22 * 6.97, 2 * 6.97))
-linea.push(new lineas(314 * 6.97, 114 * 6.97, 22 * 6.97, 2 * 6.97))
+linea.push(new lineas(214 * 2.32, 394 * 2.32, 20 * 2.32, 2 * 2.32))
+linea.push(new lineas(274 * 2.32, 375 * 2.32, 20 * 2.32, 2 * 2.32))
+linea.push(new lineas(334 * 2.32, 54 * 2.32, 22 * 2.32, 2 * 2.32))
+linea.push(new lineas(314 * 2.32, 114 * 2.32, 22 * 2.32, 2 * 2.32))
 
-linea.push(new lineas(374 * 6.97, 134 * 6.97, 42 * 6.97, 2 * 6.97))
-linea.push(new lineas(394 * 6.97, 154 * 6.97, 42 * 6.97, 2 * 6.97))
-linea.push(new lineas(374 * 6.97, 195 * 6.97, 40 * 6.97, 2 * 6.97))
+linea.push(new lineas(374 * 2.32, 134 * 2.32, 42 * 2.32, 2 * 2.32))
+linea.push(new lineas(394 * 2.32, 154 * 2.32, 42 * 2.32, 2 * 2.32))
+linea.push(new lineas(374 * 2.32, 195 * 2.32, 40 * 2.32, 2 * 2.32))
 
-linea.push(new lineas(394 * 6.97, 215 * 6.97, 61 * 6.97, 2 * 6.97))
-linea.push(new lineas(354 * 6.97, 235 * 6.97, 21 * 6.97, 2 * 6.97))
-linea.push(new lineas(374 * 6.97, 274 * 6.97, 62 * 6.97, 2 * 6.97))
-linea.push(new lineas(394 * 6.97, 315 * 6.97, 41 * 6.97, 2 * 6.97))
+linea.push(new lineas(394 * 2.32, 215 * 2.32, 61 * 2.32, 2 * 2.32))
+linea.push(new lineas(354 * 2.32, 235 * 2.32, 21 * 2.32, 2 * 2.32))
+linea.push(new lineas(374 * 2.32, 274 * 2.32, 62 * 2.32, 2 * 2.32))
+linea.push(new lineas(394 * 2.32, 315 * 2.32, 41 * 2.32, 2 * 2.32))
 
-linea.push(new lineas(374 * 6.97, 354 * 6.97, 42 * 6.97, 2 * 6.97))
-linea.push(new lineas(294 * 6.97, 394 * 6.97, 20 * 6.97, 2 * 6.97))
-linea.push(new lineas(314 * 6.97, 374 * 6.97, 22 * 6.97, 2 * 6.97))
-linea.push(new lineas(334 * 6.97, 374 * 6.97, 22 * 6.97, 2 * 6.97))
+linea.push(new lineas(374 * 2.32, 354 * 2.32, 42 * 2.32, 2 * 2.32))
+linea.push(new lineas(294 * 2.32, 394 * 2.32, 20 * 2.32, 2 * 2.32))
+linea.push(new lineas(314 * 2.32, 374 * 2.32, 22 * 2.32, 2 * 2.32))
+linea.push(new lineas(334 * 2.32, 374 * 2.32, 22 * 2.32, 2 * 2.32))
 
-linea.push(new lineas(354 * 6.97, 334 * 6.97, 42 * 6.97, 2 * 6.97))
-linea.push(new lineas(234 * 6.97, 335 * 6.97, 40 * 6.97, 2 * 6.97))
-linea.push(new lineas(294 * 6.97, 354 * 6.97, 22 * 6.97, 2 * 6.97))
-linea.push(new lineas(314 * 6.97, 335 * 6.97, 20 * 6.97, 2 * 6.97))
+linea.push(new lineas(354 * 2.32, 334 * 2.32, 42 * 2.32, 2 * 2.32))
+linea.push(new lineas(234 * 2.32, 335 * 2.32, 40 * 2.32, 2 * 2.32))
+linea.push(new lineas(294 * 2.32, 354 * 2.32, 22 * 2.32, 2 * 2.32))
+linea.push(new lineas(314 * 2.32, 335 * 2.32, 20 * 2.32, 2 * 2.32))
 
-linea.push(new lineas(334 * 6.97, 294 * 6.97, 41 * 6.97, 2 * 6.97))
-linea.push(new lineas(394 * 6.97, 95 * 6.97, 21 * 6.97, 2 * 6.97))
-linea.push(new lineas(334 * 6.97, 174 * 6.97, 102 * 6.97, 2 * 6.97))
-linea.push(new lineas(354 * 6.97, 274 * 6.97, 22 * 6.97, 2 * 6.97))
+linea.push(new lineas(334 * 2.32, 294 * 2.32, 41 * 2.32, 2 * 2.32))
+linea.push(new lineas(394 * 2.32, 95 * 2.32, 21 * 2.32, 2 * 2.32))
+linea.push(new lineas(334 * 2.32, 174 * 2.32, 102 * 2.32, 2 * 2.32))
+linea.push(new lineas(354 * 2.32, 274 * 2.32, 22 * 2.32, 2 * 2.32))
 
-linea.push(new lineas(194 * 6.97, 295 * 6.97, 21 * 6.97, 2 * 6.97))
-linea.push(new lineas(214 * 6.97, 294 * 6.97, 62 * 6.97, 2 * 6.97))
-linea.push(new lineas(254 * 6.97, 314 * 6.97, 42 * 6.97, 2 * 6.97))
-linea.push(new lineas(274 * 6.97, 334 * 6.97, 22 * 6.97, 2 * 6.97))
+linea.push(new lineas(194 * 2.32, 295 * 2.32, 21 * 2.32, 2 * 2.32))
+linea.push(new lineas(214 * 2.32, 294 * 2.32, 62 * 2.32, 2 * 2.32))
+linea.push(new lineas(254 * 2.32, 314 * 2.32, 42 * 2.32, 2 * 2.32))
+linea.push(new lineas(274 * 2.32, 334 * 2.32, 22 * 2.32, 2 * 2.32))
 
-linea.push(new lineas(214 * 6.97, 235 * 6.97, 41 * 6.97, 2 * 6.97))
-linea.push(new lineas(214 * 6.97, 194 * 6.97, 22 * 6.97, 2 * 6.97))
-linea.push(new lineas(194 * 6.97, 174 * 6.97, 21 * 6.97, 2 * 6.97))
-linea.push(new lineas(234 * 6.97, 154 * 6.97, 41 * 6.97, 2 * 6.97))
+linea.push(new lineas(214 * 2.32, 235 * 2.32, 41 * 2.32, 2 * 2.32))
+linea.push(new lineas(214 * 2.32, 194 * 2.32, 22 * 2.32, 2 * 2.32))
+linea.push(new lineas(194 * 2.32, 174 * 2.32, 21 * 2.32, 2 * 2.32))
+linea.push(new lineas(234 * 2.32, 154 * 2.32, 41 * 2.32, 2 * 2.32))
 
-linea.push(new lineas(274 * 6.97, 135 * 6.97, 20 * 6.97, 2 * 6.97))
-linea.push(new lineas(294 * 6.97, 154 * 6.97, 41 * 6.97, 2 * 6.97))
-linea.push(new lineas(234 * 6.97, 214 * 6.97, 82 * 6.97, 2 * 6.97))
-linea.push(new lineas(254 * 6.97, 234 * 6.97, 21 * 6.97, 2 * 6.97))
+linea.push(new lineas(274 * 2.32, 135 * 2.32, 20 * 2.32, 2 * 2.32))
+linea.push(new lineas(294 * 2.32, 154 * 2.32, 41 * 2.32, 2 * 2.32))
+linea.push(new lineas(234 * 2.32, 214 * 2.32, 82 * 2.32, 2 * 2.32))
+linea.push(new lineas(254 * 2.32, 234 * 2.32, 21 * 2.32, 2 * 2.32))
 
-linea.push(new lineas(254 * 6.97, 194 * 6.97, 22 * 6.97, 2 * 6.97))
-linea.push(new lineas(274 * 6.97, 215 * 6.97, 61 * 6.97, 2 * 6.97))
-linea.push(new lineas(254 * 6.97, 274 * 6.97, 22 * 6.97, 2 * 6.97))
-linea.push(new lineas(294 * 6.97, 275 * 6.97, 61 * 6.97, 2 * 6.97))
+linea.push(new lineas(254 * 2.32, 194 * 2.32, 22 * 2.32, 2 * 2.32))
+linea.push(new lineas(274 * 2.32, 215 * 2.32, 61 * 2.32, 2 * 2.32))
+linea.push(new lineas(254 * 2.32, 274 * 2.32, 22 * 2.32, 2 * 2.32))
+linea.push(new lineas(294 * 2.32, 275 * 2.32, 61 * 2.32, 2 * 2.32))
 
-linea.push(new lineas(274 * 6.97, 294 * 6.97, 21 * 6.97, 2 * 6.97))
-linea.push(new lineas(314 * 6.97, 194 * 6.97, 102 * 6.97, 2 * 6.97))
-linea.push(new lineas(254 * 6.97, 154 * 6.97, 22 * 6.97, 2 * 6.97))
-linea.push(new lineas(74 * 6.97, 95 * 6.97, 20 * 6.97, 2 * 6.97))
-linea.push(new lineas(154 * 6.97, 255 * 6.97, 20 * 6.97, 2 * 6.97))
+linea.push(new lineas(274 * 2.32, 294 * 2.32, 21 * 2.32, 2 * 2.32))
+linea.push(new lineas(314 * 2.32, 194 * 2.32, 102 * 2.32, 2 * 2.32))
+linea.push(new lineas(254 * 2.32, 154 * 2.32, 22 * 2.32, 2 * 2.32))
+linea.push(new lineas(74 * 2.32, 95 * 2.32, 20 * 2.32, 2 * 2.32))
+linea.push(new lineas(154 * 2.32, 255 * 2.32, 20 * 2.32, 2 * 2.32))
 
 
 
@@ -405,19 +405,19 @@ document.addEventListener("keyup", function (e) {
 function update(){
     switch(direccion){
         case "up":
-            player.y -= 20
+            player.y -= 5
             spri.y = 2
         break;
         case "down":
-            player.y += 20
+            player.y += 5
             spri.y = 0
         break;
         case "left":
-            player.x -= 20
+            player.x -= 5
             spri.y = 1
         break;
         case "right":
-            player.x += 20
+            player.x += 5
             spri.y = 3
         break;
     }
@@ -425,7 +425,7 @@ function update(){
     
 }
 
-let zoomFactor = 1.5;
+let zoomFactor = 3;
 ctx.scale(zoomFactor, zoomFactor);
 
 var mono = new Image()
@@ -467,7 +467,7 @@ function pintar(time){
 
         if (player.siTocar(bul)) {
             banderaBul = true;
-            mostrarVentanaEmergente("¡Has Capturado a bulbasor");
+            mostrarVentanaEmergente("¡Has Capturado a");
         } else if (!banderaBul) {
             ctx.drawImage(imgBul, bul.x - camera.x, bul.y - camera.y, bul.h, bul.w);
         }
