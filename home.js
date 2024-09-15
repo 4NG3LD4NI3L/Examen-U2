@@ -89,26 +89,30 @@ var imgTrue = new Image()
 imgTrue.src = "true.png"
 
 //PLAYER
-var player = new jugador(0,0,20,20)
+var player = new jugador(45,40,20,20)
 let spri = new jugador(0,0,32,32)
 
+//SALIDA
+var pared1 = new jugador(394 * 2.32,414 * 2.32,21 * 2.32,1 * 2.32)
+var pared2 = new jugador(414 * 2.32,394 * 2.32,1 * 2.32,21 * 2.32)
+
 //POKEMONES
-var bul = new jugador(280,148,10,10)
-var drag = new jugador(2800,1165,10,10)
-var gato = new jugador(1831,1398,10,10)
-var pik = new jugador(1819,2372,10,10)
-var pin = new jugador(1705,2519,10,10)
-var purp = new jugador(1399,1805,10,10)
-var tort = new jugador(560,2518,10,10)
-var trueno = new jugador(2517,568,10,10)
+let bul = new jugador(98,101,10,10)
+let drag = new jugador(53,185,10,10)
+let gato = new jugador(844,201,10,10)
+let pik = new jugador(565,368,10,10)
+let pin = new jugador(551,858,10,10)
+let purp = new jugador(850,471,10,10)
+let tort = new jugador(286,664,10,10)
+let trueno = new jugador(196,844,10,10)
 
 
 //MARCO
 ctx.strokeStyle = 'black';
-linea.push(new lineas(34 * 2.32 ,15* 2.32 ,1* 2.32, 381* 2.32))
-linea.push(new lineas(15* 2.32 ,414* 2.32 ,1* 2.32, 380* 2.32))
-linea.push(new lineas(15* 2.32 ,15* 2.32 ,400* 2.32, 1* 2.32))
-linea.push(new lineas(414* 2.32,15* 2.32 ,380* 2.32, 1* 2.32))
+linea.push(new lineas(35.88, 34.8, 2.32, 926.92));
+linea.push(new lineas(34.8, 960.48, 2.32, 881.6));
+linea.push(new lineas(34.8, 34.8, 928, 2.32));
+linea.push(new lineas(960.48, 34.8, 881.6, 2.32));
 
 // LINEAS HORIZONTALES (X,Y,ALTO,ANCHO)
 linea.push(new lineas(34 * 2.32, 54 * 2.32, 2 * 2.32, 21 * 2.32));
@@ -425,7 +429,7 @@ function update(){
     
 }
 
-let zoomFactor = 3;
+let zoomFactor = 1;
 ctx.scale(zoomFactor, zoomFactor);
 
 var mono = new Image()
@@ -465,58 +469,80 @@ function pintar(time){
 
         ctx.fillStyle = "white";
 
-        if (player.siTocar(bul)) {
-            banderaBul = true;
-            mostrarVentanaEmergente("¡Has Capturado a");
-        } else if (!banderaBul) {
-            ctx.drawImage(imgBul, bul.x - camera.x, bul.y - camera.y, bul.h, bul.w);
-        }
-
-        if (player.siTocar(drag)) {
-            banderaDrag = true;
-            mostrarVentanaEmergente("¡Has tocado el objeto Bul!");
-        } else if (!banderaDrag) {
-            ctx.drawImage(imgDrag, drag.x - camera.x, drag.y - camera.y, drag.h, drag.w);
-        }
-
-        if (player.siTocar(gato)) {
-            banderaGato = true;
-        } else if (!banderaGato) {
-            ctx.drawImage(imgGato, gato.x - camera.x, gato.y - camera.y, gato.h, gato.w);
-        }
-
-        if (player.siTocar(pik)) {
-            banderaPik = true;
-        } else if (!banderaPik) {
-            ctx.drawImage(imgPik, pik.x - camera.x, pik.y - camera.y, pik.h, pik.w);
-        }
-
-        if (player.siTocar(pin)) {
-            banderaPin = true;
-        } else if (!banderaPin) {
-            ctx.drawImage(imgPin, pin.x - camera.x, pin.y - camera.y, pin.h, pin.w);
-        }
-
-        if (player.siTocar(purp)) {
-            banderaPurp = true;
-        } else if (!banderaPurp) {
-            ctx.drawImage(imgPurp, purp.x - camera.x, purp.y - camera.y, purp.h, purp.w);
-        }
-
-        if (player.siTocar(tort)) {
-            banderaTort = true;
-        } else if (!banderaTort) {
-            ctx.drawImage(imgTort, tort.x - camera.x, tort.y - camera.y, tort.h, tort.w);
-        }
-
-        if (player.siTocar(trueno)) {
-            banderaTrue = true;
-        } else if (!banderaTrue) {
-            ctx.drawImage(imgTrue, trueno.x - camera.x, trueno.y - camera.y, trueno.h, trueno.w);
-        }
         
         ctx.drawImage(mono ,spri.x *30 , spri.y*32 , spri.w , spri.h ,player.x - camera.x,player.y - camera.y, player.h , player.w )
 
+        if (player.siTocar(bul)) {
+            bul = new jugador(0,0,10,10)
+            banderaBul = true;
+            mostrarVentanaEmergente("¡Has Capturado a Bulbasaur");
+        }else if (!banderaBul) {
+            ctx.drawImage(imgBul, bul.x - camera.x, bul.y - camera.y, bul.h, bul.w);
+    
+        }
+    
+        if (player.siTocar(drag)) {
+            banderaDrag = true;
+            mostrarVentanaEmergente("¡Has capturado a Charizard");
+            drag = new jugador(0,0,10,10)
+        } else if (!banderaDrag) {
+            ctx.drawImage(imgDrag, drag.x - camera.x, drag.y - camera.y, drag.h, drag.w);
+        }
+    
+        if (player.siTocar(gato)) {
+            banderaGato = true;
+            mostrarVentanaEmergente("¡Has capturado a Meowth");
+            gato = new jugador(0,0,10,10)
+        } else if (!banderaGato) {
+            ctx.drawImage(imgGato, gato.x - camera.x, gato.y - camera.y, gato.h, gato.w);
+        }
+    
+        if (player.siTocar(pik)) {
+            banderaPik = true;
+            mostrarVentanaEmergente("¡Has capturado a Pikachu");
+            pik = new jugador(565,368,10,10)
+        } else if (!banderaPik) {
+            ctx.drawImage(imgPik, pik.x - camera.x, pik.y - camera.y, pik.h, pik.w);
+        }
+    
+        if (player.siTocar(pin)) {
+            banderaPin = true;
+            mostrarVentanaEmergente("¡Has capturado a Piplup");
+            pin = new jugador(0,0,10,10)
+        } else if (!banderaPin) {
+            ctx.drawImage(imgPin, pin.x - camera.x, pin.y - camera.y, pin.h, pin.w);
+        }
+    
+        if (player.siTocar(purp)) {
+            banderaPurp = true;
+            mostrarVentanaEmergente("¡Has capturado a Spheal");
+            purp = new jugador(0,0,10,10)
+        } else if (!banderaPurp) {
+            ctx.drawImage(imgPurp, purp.x - camera.x, purp.y - camera.y, purp.h, purp.w);
+        }
+    
+        if (player.siTocar(tort)) {
+            banderaTort = true;
+            mostrarVentanaEmergente("¡Has capturado a Squirtle");
+            tort = new jugador(0,0,10,10)
+        } else if (!banderaTort) {
+            ctx.drawImage(imgTort, tort.x - camera.x, tort.y - camera.y, tort.h, tort.w);
+        }
+    
+        if (player.siTocar(trueno)) {
+            banderaTrue = true;
+            mostrarVentanaEmergente("¡Has capturado a Blastoise");
+            trueno = new jugador(0,0,10,10)
+        } else if (!banderaTrue) {
+            ctx.drawImage(imgTrue, trueno.x - camera.x, trueno.y - camera.y, trueno.h, trueno.w);
+        }
+
+        if(banderaBul == true && banderaDrag == true  && banderaGato == true  && banderaPik == true  && banderaPin == true  && banderaPurp == true  && banderaTort == true  && banderaTrue == true ){
+            console.log("HOLA")
+        }else{
+            ctx.fillRect(pared1.x,pared1.y,pared1.h,pared1.w)
+            ctx.fillRect(pared2.x,pared2.y,pared2.h,pared2.w)
+        }
 
         spri.x += 1
         
@@ -526,27 +552,24 @@ function pintar(time){
 
         
     }
-    requestAnimationFrame(pintar)
+
     
+    requestAnimationFrame(pintar)
 }
 requestAnimationFrame(pintar)
 
 
 function mostrarVentanaEmergente(mensaje) {
-    // Crear un elemento de div para la ventana emergente
     let ventana = document.createElement("div");
     
-    // Asignar la clase CSS a la ventana emergente
     ventana.className = "ventana-emergente";
     
-    // Agregar el mensaje a la ventana emergente
     ventana.innerText = mensaje;
 
-    // Añadir la ventana emergente al cuerpo del documento
     document.body.appendChild(ventana);
 
-    // Quitar la ventana después de 5 segundos
+    
     setTimeout(function() {
         document.body.removeChild(ventana);
-    }, 5000); // 5000 ms = 5 segundos
+    }, 3000);
 }
