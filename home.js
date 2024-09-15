@@ -387,7 +387,7 @@ document.addEventListener("keydown",function(e){
             pause = !pause;
         break;
     }
-    console.log(e)
+    
 })
 
 document.addEventListener("keyup", function (e) {
@@ -405,23 +405,24 @@ document.addEventListener("keyup", function (e) {
 function update(){
     switch(direccion){
         case "up":
-            player.y -= 7
+            player.y -= 20
             spri.y = 2
         break;
         case "down":
-            player.y += 7
+            player.y += 20
             spri.y = 0
         break;
         case "left":
-            player.x -= 7
+            player.x -= 20
             spri.y = 1
         break;
         case "right":
-            player.x += 7
+            player.x += 20
             spri.y = 3
         break;
     }
     camera.follow(player);
+    
 }
 
 let zoomFactor = 1.5;
@@ -435,6 +436,15 @@ let fps = 30;     // Número de frames por segundo deseado (ajusta este valor)
 let frameDuration = 1000 / fps; 
 
 var banderaBul = false;
+var banderaDrag = false;
+var banderaGato = false;
+var banderaPik = false;
+var banderaPin = false;
+var banderaPurp = false;
+var banderaTort = false;
+var banderaTrue = false;
+  
+
 
 function pintar(time){
     let deltaTime = time - lastTime;
@@ -455,19 +465,55 @@ function pintar(time){
 
         ctx.fillStyle = "white";
 
-        if(player.siTocar(bul)){
-            console("HOLA")
+        if (player.siTocar(bul)) {
+            banderaBul = true;
+            mostrarVentanaEmergente("¡Has Capturado a bulbasor");
+        } else if (!banderaBul) {
+            ctx.drawImage(imgBul, bul.x - camera.x, bul.y - camera.y, bul.h, bul.w);
         }
 
-        ctx.drawImage(imgBul ,bul.x - camera.x , bul.y - camera.y , bul.h , bul.w )
-        
-        ctx.drawImage(imgDrag ,drag.x - camera.x , drag.y - camera.y , drag.h , drag.w )
-        ctx.drawImage(imgGato,gato.x - camera.x , gato.y - camera.y , gato.h , gato.w )
-        ctx.drawImage(imgPik,pik.x - camera.x , pik.y - camera.y , pik.h , pik.w )
-        ctx.drawImage(imgPin,pin.x - camera.x , pin.y - camera.y , pin.h , pin.w )
-        ctx.drawImage(imgPurp,purp.x - camera.x , purp.y - camera.y , purp.h , purp.w )
-        ctx.drawImage(imgTort,tort.x - camera.x , tort.y - camera.y , tort.h , tort.w )
-        ctx.drawImage(imgTrue,trueno.x - camera.x , trueno.y - camera.y , trueno.h , trueno.w )
+        if (player.siTocar(drag)) {
+            banderaDrag = true;
+            mostrarVentanaEmergente("¡Has tocado el objeto Bul!");
+        } else if (!banderaDrag) {
+            ctx.drawImage(imgDrag, drag.x - camera.x, drag.y - camera.y, drag.h, drag.w);
+        }
+
+        if (player.siTocar(gato)) {
+            banderaGato = true;
+        } else if (!banderaGato) {
+            ctx.drawImage(imgGato, gato.x - camera.x, gato.y - camera.y, gato.h, gato.w);
+        }
+
+        if (player.siTocar(pik)) {
+            banderaPik = true;
+        } else if (!banderaPik) {
+            ctx.drawImage(imgPik, pik.x - camera.x, pik.y - camera.y, pik.h, pik.w);
+        }
+
+        if (player.siTocar(pin)) {
+            banderaPin = true;
+        } else if (!banderaPin) {
+            ctx.drawImage(imgPin, pin.x - camera.x, pin.y - camera.y, pin.h, pin.w);
+        }
+
+        if (player.siTocar(purp)) {
+            banderaPurp = true;
+        } else if (!banderaPurp) {
+            ctx.drawImage(imgPurp, purp.x - camera.x, purp.y - camera.y, purp.h, purp.w);
+        }
+
+        if (player.siTocar(tort)) {
+            banderaTort = true;
+        } else if (!banderaTort) {
+            ctx.drawImage(imgTort, tort.x - camera.x, tort.y - camera.y, tort.h, tort.w);
+        }
+
+        if (player.siTocar(trueno)) {
+            banderaTrue = true;
+        } else if (!banderaTrue) {
+            ctx.drawImage(imgTrue, trueno.x - camera.x, trueno.y - camera.y, trueno.h, trueno.w);
+        }
         
         ctx.drawImage(mono ,spri.x *30 , spri.y*32 , spri.w , spri.h ,player.x - camera.x,player.y - camera.y, player.h , player.w )
 
@@ -486,3 +532,21 @@ function pintar(time){
 requestAnimationFrame(pintar)
 
 
+function mostrarVentanaEmergente(mensaje) {
+    // Crear un elemento de div para la ventana emergente
+    let ventana = document.createElement("div");
+    
+    // Asignar la clase CSS a la ventana emergente
+    ventana.className = "ventana-emergente";
+    
+    // Agregar el mensaje a la ventana emergente
+    ventana.innerText = mensaje;
+
+    // Añadir la ventana emergente al cuerpo del documento
+    document.body.appendChild(ventana);
+
+    // Quitar la ventana después de 5 segundos
+    setTimeout(function() {
+        document.body.removeChild(ventana);
+    }, 5000); // 5000 ms = 5 segundos
+}
