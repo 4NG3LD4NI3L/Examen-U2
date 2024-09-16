@@ -1,6 +1,11 @@
 const canvas = document.getElementById('my_canvas');
 const ctx = canvas.getContext('2d');
 
+const audio = new Audio('babo.mp3');
+audio.preload = "auto";
+document.body.appendChild(audio); 
+audio.play()
+
 var linea = [];
 var direccion = " ";
 
@@ -434,7 +439,7 @@ function update(){
     
 }
 
-let zoomFactor = 2;
+let zoomFactor = 2.5;
 ctx.scale(zoomFactor, zoomFactor);
 
 var mono = new Image()
@@ -456,8 +461,12 @@ var banderaTrue = false;
 const imagen = new Image();
 imagen.src = 'fondo.png'; // Reemplaza con la ruta de tu imagen
 
+
+
 function pintar(time){
     let deltaTime = time - lastTime;
+
+    
 
     if (deltaTime > frameDuration) {
         lastTime = time;
@@ -585,8 +594,8 @@ function mostrarVentanaEmergente(mensaje) {
     }, 3000);
 }
 
-const minimapWidth = 640;
-const minimapHeight = 953;
+const minimapWidth = 729;
+const minimapHeight = 990;
 const minimapX = canvas.width - minimapWidth - 10; // 10px de margen desde el borde derecho
 const minimapY = canvas.height - minimapHeight - 10; // 10px de margen desde el borde inferior
 
@@ -596,11 +605,11 @@ function drawMinimap() {
     minimapCanvas.height = minimapHeight;
     const minimapCtx = minimapCanvas.getContext('2d');
 
-    minimapCtx.fillStyle = 'lightgray'; // Puedes cambiar el color a lo que prefieras
-    minimapCtx.fillRect(0, 0, 148, 148);
+    minimapCtx.fillStyle = 'white'; // Puedes cambiar el color a lo que prefieras
+    minimapCtx.fillRect(0, 0, 139, 139);
 
     // Escala del minimapa
-    const scale = 0.15; // Ajusta según el tamaño del minimapa y el tamaño del nivel
+    const scale = 0.14; // Ajusta según el tamaño del minimapa y el tamaño del nivel
 
     // Dibuja las líneas (nivel)
     minimapCtx.strokeStyle = 'black';
@@ -624,3 +633,37 @@ function drawMinimap() {
     // Dibuja el minimapa en el canvas principal
     ctx.drawImage(minimapCanvas, minimapX, minimapY, minimapWidth, minimapHeight);
 }
+
+let segundos = 0;
+let minutos = 0;
+let intervalo;
+
+// Función para actualizar el cronómetro
+function actualizarCronometro() {
+    segundos++;
+
+    if (segundos >= 60) {
+        segundos = 0;
+        minutos++;
+    }
+
+    // Formatear minutos y segundos con dos dígitos
+    let segundosFormateados = segundos < 10 ? '0' + segundos : segundos;
+    let minutosFormateados = minutos < 10 ? '0' + minutos : minutos;
+
+    // Mostrar el tiempo en el div con id "cronometro"
+    document.getElementById('cronometro').textContent = `Tiempo: ${minutosFormateados}:${segundosFormateados}`;
+}
+
+// Función para iniciar el cronómetro
+function iniciarCronometro() {
+    intervalo = setInterval(actualizarCronometro, 1000); // Actualizar cada segundo
+}
+
+// Función para detener el cronómetro
+function detenerCronometro() {
+    clearInterval(intervalo);
+}
+
+// Iniciar el cronómetro automáticamente al cargar la página
+iniciarCronometro();
