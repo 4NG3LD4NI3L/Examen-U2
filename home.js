@@ -101,6 +101,9 @@ let spri = new jugador(0,0,32,32)
 //SALIDA
 var pared1 = new jugador(394 * 2.32,414 * 2.32,1 * 2.32,21 * 2.32)
 var pared2 = new jugador(414 * 2.32,394 * 2.32,21 * 2.32,1 * 2.32)
+//paredes finales
+var pared3 = new jugador(394 * 2.32,414 * 2.32,1 * 2.32,21 * 2.32)
+var pared4 = new jugador(414 * 2.32,394 * 2.32,21 * 2.32,1 * 2.32)
 
 //POKEMONES
 let bul = new jugador(98,101,10,10)
@@ -551,13 +554,22 @@ function pintar(time){
             ctx.drawImage(imgTrue, trueno.x - camera.x, trueno.y - camera.y, trueno.h, trueno.w);
         }
 
-        if(player.siTocar(pared1) || player.siTocar(pared2)){
+        if(player.siTocar(pared1)){
+            mostrarVentanaEmergente("Debes recoger todos los pokemons");
+        }
+        if(player.siTocar(pared2)){
             mostrarVentanaEmergente("Debes recoger todos los pokemons");
         }
 
         if(banderaBul == true && banderaDrag == true  && banderaGato == true  && banderaPik == true  && banderaPin == true  && banderaPurp == true  && banderaTort == true  && banderaTrue == true ){
-            pared1 = new jugador(0,0, 1 * 2.32,21 * 2.32)
-            pared2 = new jugador(0,0, 21 * 2.32,1 * 2.32)
+           pared1 = new jugador(0,0,0,0);
+           pared2 = new jugador(0,0,0,0)
+            if(player.siTocar(pared3)){
+            window.location.href = 'pantallaFinal.html';
+           }
+           if(player.siTocar(pared4)){
+            window.location.href = 'pantallaFinal.html';
+           }
         }else{
             ctx.fillStyle="red"
             ctx.fillRect(pared1.x - camera.x,pared1.y - camera.y,pared1.w,pared1.h)
@@ -618,9 +630,10 @@ function drawMinimap() {
     });
 
     // Dibuja al jugador en el minimapa
-    minimapCtx.fillStyle = 'red';
+    minimapCtx.fillStyle = 'blue';
     minimapCtx.fillRect(player.x * scale, player.y * scale, player.w * scale, player.h * scale);
 
+    minimapCtx.fillStyle = 'red';
     minimapCtx.fillRect(bul.x * scale, bul.y * scale, bul.w * scale, bul.h * scale);
     minimapCtx.fillRect(drag.x * scale, drag.y * scale, drag.w * scale, drag.h * scale);
     minimapCtx.fillRect(gato.x * scale, gato.y * scale, gato.w * scale, gato.h * scale);
@@ -647,23 +660,16 @@ function actualizarCronometro() {
         minutos++;
     }
 
-    // Formatear minutos y segundos con dos dígitos
+    
     let segundosFormateados = segundos < 10 ? '0' + segundos : segundos;
     let minutosFormateados = minutos < 10 ? '0' + minutos : minutos;
 
-    // Mostrar el tiempo en el div con id "cronometro"
+    
     document.getElementById('cronometro').textContent = `Tiempo: ${minutosFormateados}:${segundosFormateados}`;
 }
 
-// Función para iniciar el cronómetro
 function iniciarCronometro() {
-    intervalo = setInterval(actualizarCronometro, 1000); // Actualizar cada segundo
+    intervalo = setInterval(actualizarCronometro, 1000); 
 }
 
-// Función para detener el cronómetro
-function detenerCronometro() {
-    clearInterval(intervalo);
-}
-
-// Iniciar el cronómetro automáticamente al cargar la página
 iniciarCronometro();
