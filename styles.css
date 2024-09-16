@@ -1,18 +1,15 @@
-body{
+body {
     position: relative;
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 100vh;
     background-image: url('fondoBody.jpg');
-    background-size: cover; /* Escala la imagen para cubrir todo el elemento */
-    background-position: center; /* Centra la imagen */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
-#my_canvas {
-    border: 2px solid black;
-    background-color: lightgray;
-    box-sizing: border-box;
-}
+
 .ventana-emergente {
     position: absolute;
     top: 50px;

@@ -21,11 +21,12 @@ let camera = {
 };
 
 class lineas{
-    constructor(x,y,h,w){
+    constructor(x,y,h,w,img){
         this.x = x;
         this.y = y;
         this.h = h;
         this.w = w;
+        this.img = img
     }
 }
 
@@ -107,6 +108,9 @@ let tort = new jugador(286,664,10,10)
 let trueno = new jugador(196,844,10,10)
 
 
+var arbusto = new Image()
+arbusto.src = "arbusto.png"
+
 //MARCO
 ctx.strokeStyle = 'black';
 linea.push(new lineas(35.88, 34.8, 2.32, 926.92));
@@ -115,6 +119,7 @@ linea.push(new lineas(34.8, 34.8, 928, 2.32));
 linea.push(new lineas(960.48, 34.8, 881.6, 2.32));
 
 // LINEAS HORIZONTALES (X,Y,ALTO,ANCHO)
+
 linea.push(new lineas(34 * 2.32, 54 * 2.32, 2 * 2.32, 21 * 2.32));
 linea.push(new lineas(94 * 2.32, 34 * 2.32, 2 * 2.32, 22 * 2.32));
 linea.push(new lineas(134 * 2.32, 34 * 2.32, 2 * 2.32, 21 * 2.32));
@@ -429,13 +434,13 @@ function update(){
     
 }
 
-let zoomFactor = 3;
+let zoomFactor = 2;
 ctx.scale(zoomFactor, zoomFactor);
 
 var mono = new Image()
 mono.src = "ash.png"
 
-let lastTime = 0; // Último tiempo registrado
+let lastTime = 3; // Último tiempo registrado
 let fps = 30;     // Número de frames por segundo deseado (ajusta este valor)
 let frameDuration = 1000 / fps; 
 
@@ -458,13 +463,12 @@ function pintar(time){
         lastTime = time;
         ctx.fillStyle = "lightgray";
         ctx.drawImage(imagen, 0, 0, canvas.width, canvas.height);
-        
         update()
        
         
         ctx.fillStyle = "black";
         linea.forEach(function(lin,i,array){
-            ctx.fillRect(lin.x - camera.x, lin.y - camera.y, lin.w, lin.h);
+            ctx.fillRect(lin.x - camera.x, lin.y - camera.y,lin.w,lin.h);
             player.siTocar(lin);
         })
 
@@ -560,7 +564,7 @@ function pintar(time){
         
     }
 
-    
+    drawMinimap();
     requestAnimationFrame(pintar)
 }
 requestAnimationFrame(pintar)
@@ -580,3 +584,35 @@ function mostrarVentanaEmergente(mensaje) {
         document.body.removeChild(ventana);
     }, 3000);
 }
+
+const minimapWidth = 590;
+const minimapHeight = 953;
+const minimapX = canvas.width - minimapWidth - 10; // 10px de margen desde el borde derecho
+const minimapY = canvas.height - minimapHeight - 10; // 10px de margen desde el borde inferior
+
+function drawMinimap() {
+    const minimapCanvas = document.createElement('canvas');
+    minimapCanvas.width = minimapWidth;
+    minimapCanvas.height = minimapHeight;
+    const minimapCtx = minimapCanvas.getContext('2d');
+
+    minimapCtx.fillStyle = 'lightgray'; // Puedes cambiar el color a lo que prefieras
+    minimapCtx.fillRect(0, 0, 100, 100);
+
+    // Escala del minimapa
+    const scale = 0.1; // Ajusta según el tamaño del minimapa y el tamaño del nivel
+
+    // Dibuja las líneas (nivel)
+    minimapCtx.strokeStyle = 'black';
+    linea.forEach(l => {
+        minimapCtx.strokeRect(l.x * scale, l.y * scale, l.w * scale, l.h * scale);
+    });
+
+    // Dibuja al jugador en el minimapa
+    minimapCtx.fillStyle = 'red';
+    minimapCtx.fillRect(player.x * scale, player.y * scale, player.w * scale, player.h * scale);
+
+    // Dibuja el minimapa en el canvas principal
+    ctx.drawImage(minimapCanvas, minimapX, minimapY, minimapWidth, minimapHeight);
+}
+
