@@ -1,7 +1,7 @@
 const canvas = document.getElementById('my_canvas');
 const ctx = canvas.getContext('2d');
 
-const audio = new Audio('/Audios/babo.mp3');
+const audio = new Audio('/Audios/ambiente.mp3');
 audio.preload = "auto";
 document.body.appendChild(audio); 
 audio.play()
