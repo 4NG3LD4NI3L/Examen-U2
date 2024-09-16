@@ -27,28 +27,21 @@
     </div>
 
     <script>
-    // Manejador de eventos para el botón
     document.getElementById('jugarButton').addEventListener('click', function() {
-        // Redireccionar a la página deseada
-        window.location.href = 'index.html'; // Cambia 'nueva-pagina.html' por la URL a la que quieras redirigir
+        window.location.href = 'index.html';
     });
-
-        // Obtener el modal y el botón "Como se juega"
         var modal = document.getElementById('modal');
         var btn = document.getElementById('comosejuega');
         var span = document.getElementsByClassName('close')[0];
 
-        // Mostrar el modal cuando se hace clic en el botón "Como se juega"
         btn.onclick = function() {
             modal.style.display = 'block';
         }
 
-        // Ocultar el modal cuando se hace clic en el botón de cerrar (x)
         span.onclick = function() {
             modal.style.display = 'none';
         }
 
-        // Ocultar el modal cuando se hace clic fuera del contenido del modal
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = 'none';
