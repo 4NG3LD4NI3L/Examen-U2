@@ -46,16 +46,16 @@ class jugador{
         {
             switch(direccion){
                 case "up":
-                    this.y += 5
+                    this.y += 10
                 break;
                 case "down":
-                    this.y -= 5
+                    this.y -= 10
                 break;
                 case "left":
-                    this.x += 5
+                    this.x += 10
                 break;
                 case "right":
-                    this.x -= 5
+                    this.x -= 10
                 break;
             }
             return true;
@@ -93,8 +93,8 @@ var player = new jugador(45,40,20,20)
 let spri = new jugador(0,0,32,32)
 
 //SALIDA
-var pared1 = new jugador(394 * 2.32,414 * 2.32,21 * 2.32,1 * 2.32)
-var pared2 = new jugador(414 * 2.32,394 * 2.32,1 * 2.32,21 * 2.32)
+var pared1 = new jugador(394 * 2.32,414 * 2.32,1 * 2.32,21 * 2.32)
+var pared2 = new jugador(414 * 2.32,394 * 2.32,21 * 2.32,1 * 2.32)
 
 //POKEMONES
 let bul = new jugador(98,101,10,10)
@@ -409,19 +409,19 @@ document.addEventListener("keyup", function (e) {
 function update(){
     switch(direccion){
         case "up":
-            player.y -= 5
+            player.y -= 10
             spri.y = 2
         break;
         case "down":
-            player.y += 5
+            player.y += 10
             spri.y = 0
         break;
         case "left":
-            player.x -= 5
+            player.x -= 10
             spri.y = 1
         break;
         case "right":
-            player.x += 5
+            player.x += 10
             spri.y = 3
         break;
     }
@@ -429,7 +429,7 @@ function update(){
     
 }
 
-let zoomFactor = 1;
+let zoomFactor = 3;
 ctx.scale(zoomFactor, zoomFactor);
 
 var mono = new Image()
@@ -448,7 +448,8 @@ var banderaPurp = false;
 var banderaTort = false;
 var banderaTrue = false;
   
-
+const imagen = new Image();
+imagen.src = 'fondo.png'; // Reemplaza con la ruta de tu imagen
 
 function pintar(time){
     let deltaTime = time - lastTime;
@@ -456,7 +457,7 @@ function pintar(time){
     if (deltaTime > frameDuration) {
         lastTime = time;
         ctx.fillStyle = "lightgray";
-        ctx.fillRect(0,0,canvas.width,canvas.height)
+        ctx.drawImage(imagen, 0, 0, canvas.width, canvas.height);
         
         update()
        
@@ -537,11 +538,17 @@ function pintar(time){
             ctx.drawImage(imgTrue, trueno.x - camera.x, trueno.y - camera.y, trueno.h, trueno.w);
         }
 
+        if(player.siTocar(pared1) || player.siTocar(pared2)){
+            mostrarVentanaEmergente("Debes recoger todos los pokemons");
+        }
+
         if(banderaBul == true && banderaDrag == true  && banderaGato == true  && banderaPik == true  && banderaPin == true  && banderaPurp == true  && banderaTort == true  && banderaTrue == true ){
-            console.log("HOLA")
+            pared1 = new jugador(0,0, 1 * 2.32,21 * 2.32)
+            pared2 = new jugador(0,0, 21 * 2.32,1 * 2.32)
         }else{
-            ctx.fillRect(pared1.x,pared1.y,pared1.h,pared1.w)
-            ctx.fillRect(pared2.x,pared2.y,pared2.h,pared2.w)
+            ctx.fillStyle="red"
+            ctx.fillRect(pared1.x - camera.x,pared1.y - camera.y,pared1.w,pared1.h)
+            ctx.fillRect(pared2.x - camera.x,pared2.y - camera.y,pared2.w,pared2.h)
         }
 
         spri.x += 1
