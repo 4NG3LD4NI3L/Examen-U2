@@ -478,7 +478,7 @@ function pintar(time){
         ctx.drawImage(mono ,spri.x *30 , spri.y*32 , spri.w , spri.h ,player.x - camera.x,player.y - camera.y, player.h , player.w )
 
         if (player.siTocar(bul)) {
-            bul = new jugador(0,0,10,10)
+            bul = new jugador(-10,0,10,10)
             banderaBul = true;
             mostrarVentanaEmergente("¡Has Capturado a Bulbasaur");
         }else if (!banderaBul) {
@@ -489,7 +489,7 @@ function pintar(time){
         if (player.siTocar(drag)) {
             banderaDrag = true;
             mostrarVentanaEmergente("¡Has capturado a Charizard");
-            drag = new jugador(0,0,10,10)
+            drag = new jugador(-10,0,10,10)
         } else if (!banderaDrag) {
             ctx.drawImage(imgDrag, drag.x - camera.x, drag.y - camera.y, drag.h, drag.w);
         }
@@ -497,7 +497,7 @@ function pintar(time){
         if (player.siTocar(gato)) {
             banderaGato = true;
             mostrarVentanaEmergente("¡Has capturado a Meowth");
-            gato = new jugador(0,0,10,10)
+            gato = new jugador(-10,0,10,10)
         } else if (!banderaGato) {
             ctx.drawImage(imgGato, gato.x - camera.x, gato.y - camera.y, gato.h, gato.w);
         }
@@ -505,7 +505,7 @@ function pintar(time){
         if (player.siTocar(pik)) {
             banderaPik = true;
             mostrarVentanaEmergente("¡Has capturado a Pikachu");
-            pik = new jugador(565,368,10,10)
+            pik = new jugador(-10,0,10,10)
         } else if (!banderaPik) {
             ctx.drawImage(imgPik, pik.x - camera.x, pik.y - camera.y, pik.h, pik.w);
         }
@@ -513,7 +513,7 @@ function pintar(time){
         if (player.siTocar(pin)) {
             banderaPin = true;
             mostrarVentanaEmergente("¡Has capturado a Piplup");
-            pin = new jugador(0,0,10,10)
+            pin = new jugador(-10,0,10,10)
         } else if (!banderaPin) {
             ctx.drawImage(imgPin, pin.x - camera.x, pin.y - camera.y, pin.h, pin.w);
         }
@@ -521,7 +521,7 @@ function pintar(time){
         if (player.siTocar(purp)) {
             banderaPurp = true;
             mostrarVentanaEmergente("¡Has capturado a Spheal");
-            purp = new jugador(0,0,10,10)
+            purp = new jugador(-10,0,10,10)
         } else if (!banderaPurp) {
             ctx.drawImage(imgPurp, purp.x - camera.x, purp.y - camera.y, purp.h, purp.w);
         }
@@ -529,7 +529,7 @@ function pintar(time){
         if (player.siTocar(tort)) {
             banderaTort = true;
             mostrarVentanaEmergente("¡Has capturado a Squirtle");
-            tort = new jugador(0,0,10,10)
+            tort = new jugador(-10,0,10,10)
         } else if (!banderaTort) {
             ctx.drawImage(imgTort, tort.x - camera.x, tort.y - camera.y, tort.h, tort.w);
         }
@@ -537,7 +537,7 @@ function pintar(time){
         if (player.siTocar(trueno)) {
             banderaTrue = true;
             mostrarVentanaEmergente("¡Has capturado a Blastoise");
-            trueno = new jugador(0,0,10,10)
+            trueno = new jugador(-10,0,10,10)
         } else if (!banderaTrue) {
             ctx.drawImage(imgTrue, trueno.x - camera.x, trueno.y - camera.y, trueno.h, trueno.w);
         }
@@ -585,7 +585,7 @@ function mostrarVentanaEmergente(mensaje) {
     }, 3000);
 }
 
-const minimapWidth = 590;
+const minimapWidth = 640;
 const minimapHeight = 953;
 const minimapX = canvas.width - minimapWidth - 10; // 10px de margen desde el borde derecho
 const minimapY = canvas.height - minimapHeight - 10; // 10px de margen desde el borde inferior
@@ -597,10 +597,10 @@ function drawMinimap() {
     const minimapCtx = minimapCanvas.getContext('2d');
 
     minimapCtx.fillStyle = 'lightgray'; // Puedes cambiar el color a lo que prefieras
-    minimapCtx.fillRect(0, 0, 100, 100);
+    minimapCtx.fillRect(0, 0, 148, 148);
 
     // Escala del minimapa
-    const scale = 0.1; // Ajusta según el tamaño del minimapa y el tamaño del nivel
+    const scale = 0.15; // Ajusta según el tamaño del minimapa y el tamaño del nivel
 
     // Dibuja las líneas (nivel)
     minimapCtx.strokeStyle = 'black';
@@ -612,7 +612,15 @@ function drawMinimap() {
     minimapCtx.fillStyle = 'red';
     minimapCtx.fillRect(player.x * scale, player.y * scale, player.w * scale, player.h * scale);
 
+    minimapCtx.fillRect(bul.x * scale, bul.y * scale, bul.w * scale, bul.h * scale);
+    minimapCtx.fillRect(drag.x * scale, drag.y * scale, drag.w * scale, drag.h * scale);
+    minimapCtx.fillRect(gato.x * scale, gato.y * scale, gato.w * scale, gato.h * scale);
+    minimapCtx.fillRect(pik.x * scale, pik.y * scale, pik.w * scale, pik.h * scale);
+    minimapCtx.fillRect(pin.x * scale, pin.y * scale, pin.w * scale, pin.h * scale);
+    minimapCtx.fillRect(purp.x * scale, purp.y * scale, purp.w * scale, purp.h * scale);
+    minimapCtx.fillRect(tort.x * scale, tort.y * scale, tort.w * scale, tort.h * scale);
+    minimapCtx.fillRect(trueno.x * scale, trueno.y * scale, trueno.w * scale, trueno.h * scale);
+
     // Dibuja el minimapa en el canvas principal
     ctx.drawImage(minimapCanvas, minimapX, minimapY, minimapWidth, minimapHeight);
 }
-
