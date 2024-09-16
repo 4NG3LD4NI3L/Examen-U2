@@ -1,7 +1,7 @@
 const canvas = document.getElementById('my_canvas');
 const ctx = canvas.getContext('2d');
 
-const audio = new Audio('babo.mp3');
+const audio = new Audio('Audios/babo.mp3');
 audio.preload = "auto";
 document.body.appendChild(audio); 
 audio.play()
@@ -71,32 +71,35 @@ class jugador{
 }
  
 var imgBul = new Image()
-imgBul.src = "bul.png"
+imgBul.src = "Img/bul.png"
 
 var imgDrag = new Image()
-imgDrag.src = "drag.png"
+imgDrag.src = "Img/drag.png"
 
 var imgGato = new Image()
-imgGato.src = "gato.png"
+imgGato.src = "Img/gato.png"
 
 var imgPik = new Image()
-imgPik.src = "pik.png"
+imgPik.src = "Img/pik.png"
 
 var imgPin = new Image()
-imgPin.src = "pin.png"
+imgPin.src = "Img/pin.png"
 
 var imgPurp = new Image()
-imgPurp.src = "purp.png"
+imgPurp.src = "Img/purp.png"
 
 var imgTort = new Image()
-imgTort.src = "tort.png"
+imgTort.src = "Img/tort.png"
 
 var imgTrue = new Image()
-imgTrue.src = "true.png"
+imgTrue.src = "Img/true.png"
 
 //PLAYER
 var player = new jugador(45,40,20,20)
 let spri = new jugador(0,0,32,32)
+
+var mono = new Image()
+mono.src = "Img/ash.png"
 
 //SALIDA
 var pared1 = new jugador(394 * 2.32,414 * 2.32,1 * 2.32,21 * 2.32)
@@ -115,9 +118,14 @@ let purp = new jugador(850,471,10,10)
 let tort = new jugador(286,664,10,10)
 let trueno = new jugador(196,844,10,10)
 
-
-var arbusto = new Image()
-arbusto.src = "arbusto.png"
+var banderaBul = false;
+var banderaDrag = false;
+var banderaGato = false;
+var banderaPik = false;
+var banderaPin = false;
+var banderaPurp = false;
+var banderaTort = false;
+var banderaTrue = false;
 
 //MARCO
 ctx.strokeStyle = 'black';
@@ -125,6 +133,10 @@ linea.push(new lineas(35.88, 34.8, 2.32, 926.92));
 linea.push(new lineas(34.8, 960.48, 2.32, 881.6));
 linea.push(new lineas(34.8, 34.8, 928, 2.32));
 linea.push(new lineas(960.48, 34.8, 881.6, 2.32));
+
+//Fondo
+const imagen = new Image();
+imagen.src = 'Img/fondo.png';
 
 // LINEAS HORIZONTALES (X,Y,ALTO,ANCHO)
 
@@ -248,9 +260,6 @@ linea.push(new lineas(174 * 2.32, 274 * 2.32, 2 * 2.32, 42 * 2.32));
 linea.push(new lineas(254 * 2.32, 274 * 2.32, 2 * 2.32, 22 * 2.32));
 linea.push(new lineas(334 * 2.32, 274 * 2.32, 2 * 2.32, 22 * 2.32));
 linea.push(new lineas(374 * 2.32, 274 * 2.32, 2 * 2.32, 22 * 2.32));
-
-
-
 
 
 // LINEAS VERTICALES
@@ -385,7 +394,6 @@ linea.push(new lineas(74 * 2.32, 95 * 2.32, 20 * 2.32, 2 * 2.32))
 linea.push(new lineas(154 * 2.32, 255 * 2.32, 20 * 2.32, 2 * 2.32))
 
 
-
 document.addEventListener("keydown",function(e){
     switch(e.keyCode){
         case 65:
@@ -445,31 +453,12 @@ function update(){
 let zoomFactor = 2.5;
 ctx.scale(zoomFactor, zoomFactor);
 
-var mono = new Image()
-mono.src = "ash.png"
-
-let lastTime = 3; // Último tiempo registrado
-let fps = 30;     // Número de frames por segundo deseado (ajusta este valor)
+let lastTime = 3; 
+let fps = 30;     
 let frameDuration = 1000 / fps; 
-
-var banderaBul = false;
-var banderaDrag = false;
-var banderaGato = false;
-var banderaPik = false;
-var banderaPin = false;
-var banderaPurp = false;
-var banderaTort = false;
-var banderaTrue = false;
-  
-const imagen = new Image();
-imagen.src = 'fondo.png'; // Reemplaza con la ruta de tu imagen
-
-
 
 function pintar(time){
     let deltaTime = time - lastTime;
-
-    
 
     if (deltaTime > frameDuration) {
         lastTime = time;
@@ -477,17 +466,19 @@ function pintar(time){
         ctx.drawImage(imagen, 0, 0, canvas.width, canvas.height);
         update()
        
-        
         ctx.fillStyle = "black";
         linea.forEach(function(lin,i,array){
             ctx.fillRect(lin.x - camera.x, lin.y - camera.y,lin.w,lin.h);
             player.siTocar(lin);
         })
 
-        ctx.fillStyle = "white";
-
-        
         ctx.drawImage(mono ,spri.x *30 , spri.y*32 , spri.w , spri.h ,player.x - camera.x,player.y - camera.y, player.h , player.w )
+
+        spri.x += 1
+        
+        if(spri.x >= 4){
+            spri.x = 0
+        }
 
         if (player.siTocar(bul)) {
             bul = new jugador(-10,0,10,10)
@@ -576,12 +567,6 @@ function pintar(time){
             ctx.fillRect(pared2.x - camera.x,pared2.y - camera.y,pared2.w,pared2.h)
         }
 
-        spri.x += 1
-        
-        if(spri.x >= 4){
-            spri.x = 0
-        }
-
         
     }
 
@@ -617,22 +602,23 @@ function drawMinimap() {
     minimapCanvas.height = minimapHeight;
     const minimapCtx = minimapCanvas.getContext('2d');
 
-    minimapCtx.fillStyle = 'white'; // Puedes cambiar el color a lo que prefieras
+    //Fondo
+    minimapCtx.fillStyle = 'white';
     minimapCtx.fillRect(0, 0, 139, 139);
 
     // Escala del minimapa
-    const scale = 0.14; // Ajusta según el tamaño del minimapa y el tamaño del nivel
+    const scale = 0.14; 
 
-    // Dibuja las líneas (nivel)
     minimapCtx.strokeStyle = 'black';
     linea.forEach(l => {
         minimapCtx.strokeRect(l.x * scale, l.y * scale, l.w * scale, l.h * scale);
     });
 
-    // Dibuja al jugador en el minimapa
+    // Dibuja jugador
     minimapCtx.fillStyle = 'blue';
     minimapCtx.fillRect(player.x * scale, player.y * scale, player.w * scale, player.h * scale);
 
+    //Dibuja pokemones
     minimapCtx.fillStyle = 'red';
     minimapCtx.fillRect(bul.x * scale, bul.y * scale, bul.w * scale, bul.h * scale);
     minimapCtx.fillRect(drag.x * scale, drag.y * scale, drag.w * scale, drag.h * scale);
@@ -643,7 +629,7 @@ function drawMinimap() {
     minimapCtx.fillRect(tort.x * scale, tort.y * scale, tort.w * scale, tort.h * scale);
     minimapCtx.fillRect(trueno.x * scale, trueno.y * scale, trueno.w * scale, trueno.h * scale);
 
-    // Dibuja el minimapa en el canvas principal
+    // Dibuja el minimapa
     ctx.drawImage(minimapCanvas, minimapX, minimapY, minimapWidth, minimapHeight);
 }
 
@@ -651,7 +637,6 @@ let segundos = 0;
 let minutos = 0;
 let intervalo;
 
-// Función para actualizar el cronómetro
 function actualizarCronometro() {
     segundos++;
 

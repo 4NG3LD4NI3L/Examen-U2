@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Examen</title>
 
     <link rel="stylesheet" href="styleFinal.css">
 </head>
@@ -22,6 +22,11 @@
         // Redireccionar a la página deseada
         window.location.href = 'pantallaGame.html'; // Cambia 'nueva-pagina.html' por la URL a la que quieras redirigir
     });
+
+    const audio = new Audio('Audios/final.mp3');
+    audio.preload = "auto";
+    document.body.appendChild(audio); 
+    audio.play()
 
     
 </script>
