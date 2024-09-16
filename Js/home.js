@@ -1,7 +1,7 @@
 const canvas = document.getElementById('my_canvas');
 const ctx = canvas.getContext('2d');
 
-const audio = new Audio('Audios/babo.mp3');
+const audio = new Audio('/Audios/babo.mp3');
 audio.preload = "auto";
 document.body.appendChild(audio); 
 audio.play()
@@ -71,35 +71,35 @@ class jugador{
 }
  
 var imgBul = new Image()
-imgBul.src = "Img/bul.png"
+imgBul.src = "/Img/bul.png"
 
 var imgDrag = new Image()
-imgDrag.src = "Img/drag.png"
+imgDrag.src = "/Img/drag.png"
 
 var imgGato = new Image()
-imgGato.src = "Img/gato.png"
+imgGato.src = "/Img/gato.png"
 
 var imgPik = new Image()
-imgPik.src = "Img/pik.png"
+imgPik.src = "/Img/pik.png"
 
 var imgPin = new Image()
-imgPin.src = "Img/pin.png"
+imgPin.src = "/Img/pin.png"
 
 var imgPurp = new Image()
-imgPurp.src = "Img/purp.png"
+imgPurp.src = "/Img/purp.png"
 
 var imgTort = new Image()
-imgTort.src = "Img/tort.png"
+imgTort.src = "/Img/tort.png"
 
 var imgTrue = new Image()
-imgTrue.src = "Img/true.png"
+imgTrue.src = "/Img/true.png"
 
 //PLAYER
 var player = new jugador(45,40,20,20)
 let spri = new jugador(0,0,32,32)
 
 var mono = new Image()
-mono.src = "Img/ash.png"
+mono.src = "/Img/ash.png"
 
 //SALIDA
 var pared1 = new jugador(394 * 2.32,414 * 2.32,1 * 2.32,21 * 2.32)
@@ -136,7 +136,7 @@ linea.push(new lineas(960.48, 34.8, 881.6, 2.32));
 
 //Fondo
 const imagen = new Image();
-imagen.src = 'Img/fondo.png';
+imagen.src = '/Img/fondo.png';
 
 // LINEAS HORIZONTALES (X,Y,ALTO,ANCHO)
 
@@ -556,10 +556,10 @@ function pintar(time){
            pared1 = new jugador(0,0,0,0);
            pared2 = new jugador(0,0,0,0)
             if(player.siTocar(pared3)){
-            window.location.href = 'pantallaFinal.html';
+            window.location.href = '/html/pantallaFinal.html';
            }
            if(player.siTocar(pared4)){
-            window.location.href = 'pantallaFinal.html';
+            window.location.href = '/html/pantallaFinal.html';
            }
         }else{
             ctx.fillStyle="red"

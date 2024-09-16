@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Examen</title>
 
-    <link rel="stylesheet" href="styleFinal.css">
+    <link rel="stylesheet" href="/Components/styleFinal.css">
 </head>
 <body>
     <h1>Felicidades haz ganado</h1>
@@ -14,14 +14,14 @@
     <button id="regresar">Regresar al menu</button>
 <script>
     document.getElementById('jugarButton').addEventListener('click', function() {
-        window.location.href = 'index.html';
+        window.location.href = '/html/index.html';
     });
 
     document.getElementById('regresar').addEventListener('click', function() {
-        window.location.href = 'pantallaGame.html';
+        window.location.href = '/pantallaGame.html';
     });
 
-    const audio = new Audio('Audios/final.mp3');
+    const audio = new Audio('/Audios/final.mp3');
     audio.preload = "auto";
     document.body.appendChild(audio); 
     audio.play()
