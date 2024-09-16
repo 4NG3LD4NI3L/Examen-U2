@@ -7,8 +7,22 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Laberinto Eterna</h1>
+    <h1>LABERINTO ETERNA</h1>
     <button id="jugarButton">Jugar</button>
+    <button id="comosejuega">Como se juega</button>
+    
+    <div id="modal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Instrucciones del juego</h2>
+          <p>Usa W para ir arriba</p>
+          <p>Usa S para ir abajo</p>
+          <p>Usa A para ir izquierda</p>
+          <p>Usa D para ir Derecha</p>
+          <br><br>
+          <p>Objetivo:Captura a los 8 pokemons que están esparcidos por el mapa para desbloquear la salida.</p>
+        </div>
+    </div>
 
     <script>
     // Manejador de eventos para el botón
@@ -16,6 +30,28 @@
         // Redireccionar a la página deseada
         window.location.href = 'index.html'; // Cambia 'nueva-pagina.html' por la URL a la que quieras redirigir
     });
+
+        // Obtener el modal y el botón "Como se juega"
+        var modal = document.getElementById('modal');
+        var btn = document.getElementById('comosejuega');
+        var span = document.getElementsByClassName('close')[0];
+
+        // Mostrar el modal cuando se hace clic en el botón "Como se juega"
+        btn.onclick = function() {
+            modal.style.display = 'block';
+        }
+
+        // Ocultar el modal cuando se hace clic en el botón de cerrar (x)
+        span.onclick = function() {
+            modal.style.display = 'none';
+        }
+
+        // Ocultar el modal cuando se hace clic fuera del contenido del modal
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
     </script>
 </body>
 </html>
